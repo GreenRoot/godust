@@ -1,0 +1,330 @@
+.crash
+  display: grid
+  grid-template: min-content 1fr / 1fr
+  grid-gap: var(--main-gap) 0
+  width: 100%
+  height: 100%
+  @media (max-width: 992px)
+    grid-template: min-content / 1fr
+    height: auto
+.crash-header
+  width: 100%
+  height: 22rem
+  border-radius: 1rem
+  background-color: var(--bg-b)
+  @media (max-width: 992px)
+    display: none
+
+.crash-game
+  display: grid
+  grid-template: min-content 1fr min-content / 1fr
+  width: 100%
+  height: 100%
+  background-color: var(--bg-b)
+  border-radius: 1rem 1rem 0 0
+  padding: 1.5rem 1.5rem 0
+  overflow: hidden
+  @media (max-width: 992px)
+    width: 100%
+    padding: 0 1rem
+    background-color: transparent
+
+.crash-stat
+  display: grid
+  grid-template: min-content / min-content 1fr
+  grid-gap: 0 1.5rem
+  width: 100%
+  height: 7.5rem
+  @media (max-width: 1250px)
+    height: 5rem
+  @media (max-width: 992px)
+    display: none
+
+.crash-count
+  display: grid
+  grid-template: 1fr / 1fr min-content 1fr
+  grid-gap: 0 3.3rem
+  align-items: center
+  justify-content: center
+  width: 30rem
+  height: 7.5rem
+  background-color: #2e2f5b
+  border-radius: 1rem
+  overflow: hidden
+  @media (max-width: 1250px)
+    grid-gap: 0
+    width: 15rem
+    height: 5rem
+  &__delimiter
+    width: .1rem
+    height: 3.5rem
+    background-color: #201f44
+
+.in-game
+  display: grid
+  grid-template: repeat(2, min-content) / repeat(2, min-content)
+  grid-template-areas: 'icon count' 'icon label'
+  grid-gap: .4rem .8rem
+  @media (max-width: 1250px)
+    place-items: center
+    grid-template: repeat(2, min-content) / min-content
+    grid-template-areas: 'count' 'label'
+  &:first-child
+    justify-content: end
+    @media (max-width: 1250px)
+      justify-content: center
+  &:last-child
+    justify-content: start
+    @media (max-width: 1250px)
+      justify-content: center
+
+  &__icon
+    grid-area: icon
+    @media (max-width: 1250px)
+      display: none
+  &__gamers
+    grid-area: count
+    font-size: 2rem
+    font-weight: 700
+    color: #50a869
+    line-height: 1.7rem
+  &__bet
+    font-size: 1.6rem
+  &__percent
+    font-size: 1.6rem
+  &__label
+    grid-area: label
+    font-size: 1.2rem
+    font-weight: 300
+    color: #fff
+    text-transform: uppercase
+
+.crash-history
+  display: grid
+  grid-template: min-content / min-content 1fr
+  grid-gap: 0 1.5rem
+  width: 100%
+  height: 7.5rem
+  background-color: #1a1c3f
+  @media (max-width: 1250px)
+    height: 5rem
+
+.crash-bank
+  display: grid
+  grid-template: repeat(2, min-content) / repeat(2, min-content)
+  grid-template-areas: 'icon label' 'icon value'
+  place-content: center
+  grid-gap: .1rem .6rem
+  height: 7.5rem
+  padding: 0 3.5rem
+  background-color: #50a869
+  border-radius: 1rem
+  @media (max-width: 1250px)
+    grid-template: repeat(2, min-content) / min-content
+    grid-template-areas: 'value' 'label'
+    place-items: center
+    height: 5rem
+    padding: 0 1.5rem
+  &__icon
+    grid-area: icon
+    @media (max-width: 1250px)
+      display: none
+  &__label
+    grid-area: label
+    font-size: 1.2rem
+    font-weight: 700
+    text-transform: uppercase
+    color: #fff
+  &__value
+    grid-area: value
+    font-size: 1.6rem
+    font-weight: 700
+    color: #fff
+
+.crash-past
+  position: relative
+  display: grid
+  align-items: center
+
+.crash-past-shadow
+  position: absolute
+  width: 100%
+  height: 100%
+  background: transparent
+  background: linear-gradient(90deg, transparent 80%, var(--bg-b) 100%)
+
+.crash-past-games
+  display: grid
+  grid-auto-flow: column
+  grid-auto-columns: min-content
+  grid-gap: 0 1rem
+  align-content: center
+  width: 100%
+  height: 3.5rem
+  overflow: hidden
+  &__game
+    display: grid
+    place-items: center
+    height: 3.5rem
+    font-size: 1.6rem
+    font-weight: 500
+    color: #fff
+    text-transform: uppercase
+    padding: 0 1.4rem
+    border-radius: 1rem
+    background-color: #999
+    &-red
+      background-color: #ba3b3b
+    &-green
+      background-color: #50a869
+    &-gold
+      background-color: #e1a400
+    &-purple
+      background-color: #401878
+
+.crash-scroll-wrapper
+  height: calc(100vh - (var(--header-height) + var(--main-gap) + var(--footer-height) + 22rem + var(--main-gap) + 1.5rem + 7.5rem + 4rem + 2.5rem))
+  overflow: hidden
+  overflow-y: scroll
+  margin-top: 2.5rem
+  @media (max-width: 1250px)
+    height: calc(100vh - (var(--header-height) + var(--main-gap) + var(--footer-height) + 22rem + var(--main-gap) + 1.5rem + 5rem + 4rem + 2.5rem))
+  @media (max-width: 992px)
+    height: 35rem
+    margin-top: 0
+    margin-bottom: 5rem
+  &::-webkit-scrollbar
+    width: 0
+  & .simplebar-track.simplebar-vertical
+    width: 0.5rem
+  & .simplebar-scrollbar:before
+    top: 0
+    left: 0
+    right: 0
+    bottom: 0
+    background-color: #393a61
+    width: 0.5rem
+    border-radius: 1rem
+
+.crash-bets
+  display: grid
+  grid-gap: 1.5rem 0
+  margin-right: .7rem
+  @media (max-width: 1250px)
+    grid-gap: 1rem 0
+
+.crash-bet
+  display: grid
+  grid-template: min-content / repeat(4, min-content) 1fr
+  align-content: center
+  align-items: center
+  justify-content: start
+  grid-gap: 0 2rem
+  width: 100%
+  height: 8.4rem
+  margin-left: .3rem
+  padding: 0 2rem
+  background-color: #27274d
+  border: .1rem solid #3f4370
+  border-radius: 1rem
+  color: #fff
+  @media (max-width: 1250px)
+    grid-template: min-content / repeat(3, min-content)
+    justify-content: space-between
+    grid-gap: 0 1rem
+    height: 6rem
+  @media (max-width: 350px)
+    padding: 0 1rem
+  &__avatar
+    width: 5rem
+    height: 5rem
+    border-width: .3rem
+    border-style: solid
+    border-color: inherit
+    border-radius: 50%
+    overflow: hidden
+    cursor: pointer
+    & img
+      width: 100%
+      height: 100%
+      object-fit: cover
+  &__bet
+    display: grid
+    place-items: center
+    width: 10rem
+    height: 3.5rem
+    border-width: .1rem
+    border-style: solid
+    border-color: inherit
+    border-radius: 1rem
+    font-size: 1.6rem
+    font-weight: 300
+    color: inherit
+  &__item
+    height: 7rem
+    background: radial-gradient(circle, white -150%, rgba(0, 0, 0, 0) 40%)
+    @media (max-width: 1250px)
+      display: none
+    & img
+      height: 100%
+  &__status
+    display: grid
+    place-items: center
+    width: 12rem
+    height: 3.5rem
+    background-color: #3f4370
+    border-radius: 1rem
+    font-size: 1.8rem
+    font-weight: 400
+    color: #fff
+    text-transform: uppercase
+    @media (max-width: 992px)
+      width: 9rem
+      font-size: 1.5rem
+  &__win
+    display: grid
+    grid-auto-flow: column
+    justify-content: end
+    width: 100%
+    @media (max-width: 1250px)
+      display: none
+  &__win-item
+    height: 7rem
+    background: radial-gradient(circle, black -100%, rgb(0 0 0 / 0%) 50%)
+    & img
+      height: 100%
+  &-winner
+    background: linear-gradient(90deg, #27274d 0%, #50a869 100%)
+    box-shadow: 0 0 5px 1px rgba(80, 168, 105, 0.35)
+    border: .1rem solid #50a869
+    color: #50a869
+    & .crash-bet__status
+      background-color: #50a869
+  &-loser
+    background: linear-gradient(90deg, #27274d 0%, #ba3b3b 100%)
+    box-shadow: 0 0 5px 1px rgba(186, 59, 59, 0.35)
+    border: .1rem solid #ba3b3b
+    color: #ba3b3b
+    & .crash-bet__status
+      background-color: #ba3b3b
+
+.crash-hash
+  display: grid
+  place-items: center
+  width: calc(100% + 3.5rem)
+  transform: translateX(-1.6rem)
+  height: 4rem
+  padding: 0 1rem
+  font-size: 1.1rem
+  font-weight: 300
+  text-align: center
+  color: #6d6c7b
+  background: radial-gradient(circle, #2e2f5b 0%, var(--bg-b) 50%)
+  box-shadow: 1px -10px 15px -8px rgb(0 0 0 / 60%)
+  overflow-x: hidden
+  z-index: 2
+  @media (max-width: 992px)
+    position: fixed
+    bottom: 6rem
+  @media (max-width: 424px)
+    font-size: .9rem

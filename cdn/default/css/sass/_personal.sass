@@ -1,0 +1,445 @@
+//personal-account
+.personal-account
+  position: relative
+  display: grid
+  grid-template: repeat(4, min-content) / 1fr
+  grid-gap: 2rem 0
+  width: 100%
+  min-width: 72.5rem
+  height: 100%
+  padding: 2.5rem 2rem 2rem
+  border-radius: 1rem
+  background-color: #202046
+  @media (max-width: 1250px)
+    min-width: auto
+.personal-account__header
+  display: grid
+  grid-template: min-content / repeat(2, min-content) 1fr
+  grid-template-areas: 'avatar balance link'
+  grid-gap: 0 2rem
+  @media (max-width: 1250px)
+    width: 100%
+    grid-template: repeat(2, min-content) / repeat(2, 1fr)
+    grid-template-areas: 'avatar balance' 'link link'
+    grid-gap: 2rem
+
+.personal-avatar
+  grid-area: avatar
+  width: 13rem
+  height: 11rem
+  background-color: var(--bgc-e)
+  border-radius: var(--br-e)
+  @media (max-width: 1250px)
+    margin-left: auto
+
+.personal-balance
+  grid-area: balance
+  width: 13rem
+  height: 11rem
+  background-color: var(--bgc-e)
+  border-radius: var(--br-e)
+
+.personal-link
+  grid-area: link
+  width: 100%
+  height: 11rem
+  background-color: var(--bgc-e)
+  border-radius: var(--br-e)
+
+.personal-account__line
+  width: 100%
+  height: 2px
+  background-color: #27274d
+
+.personal-avatar
+  position: relative
+  display: grid
+  grid-template: min-content min-content / 1fr
+  grid-gap: 1.3rem 0
+  place-content: center
+  place-items: center
+  &__img
+    width: 6rem
+    height: 6rem
+    border: double 2px transparent
+    border-radius: 50%
+    background-image: linear-gradient(white, white), linear-gradient(90deg, #50a869 50%, #2e2f5b 100%)
+    background-origin: border-box
+    background-clip: content-box, border-box
+    overflow: hidden
+    & img
+      width: 100%
+      height: 100%
+  &__nickname
+    color: #fff
+    font-size: 1.1rem
+  &__set
+    position: absolute
+    display: grid
+    place-items: center
+    top: .8rem
+    right: 3.7rem
+    width: 2.5rem
+    height: 2.5rem
+    border: double 1px transparent
+    border-radius: 50%
+    background-image: linear-gradient(#35355a, #35355a), linear-gradient(90deg, #50a869 50%, #2e2f5b 100%)
+    background-origin: border-box
+    background-clip: content-box, border-box
+    background-color: #35355a
+    cursor: pointer
+    &-ico
+      width: 50%
+      height: 50%
+      fill: #fff
+
+.personal-balance
+  position: relative
+  display: grid
+  place-items: center
+  &__value
+    position: absolute
+    font-size: 2.4rem
+    font-weight: 700
+    color: #fff
+
+.personal-link
+  display: grid
+  place-items: center
+  &__form
+    display: grid
+    grid-template: 1fr / 1fr min-content
+    grid-gap: 0 2rem
+    width: 100%
+    height: 4rem
+    padding: 0 2rem
+    @media (max-width: 450px)
+      grid-template: 4rem 4rem / 1fr
+      padding: 0 1rem
+      height: auto
+      grid-gap: 1rem 0
+
+  &__input
+    background-color: #202046
+    border: none
+    border-radius: 2rem
+    padding: 0 3rem
+    font-size: 1.4rem
+    color: #fff
+    outline: none
+    &::placeholder
+      font-size: 1.1rem
+      font-weight: 300
+      color: #63637e
+  &__button
+    display: grid
+    place-items: center
+    padding: 0 3rem
+    background-color: #50a869
+    border: none
+    border-radius: 2rem
+    font-size: 1.2rem
+    color: #fff
+    text-transform: uppercase
+    cursor: pointer
+    &:hover
+      background-color: darken(#50a869, 10%)
+    &:active
+      background-color: darken(#50a869, 15%)
+
+.personal-account__body
+  display: grid
+  grid-template: min-content / min-content 1fr
+  grid-gap: 0 2rem
+  @media (max-width: 1250px)
+    grid-template: min-content min-content / 1fr
+    grid-gap: 2rem 0
+
+.personal-info
+  display: grid
+  grid-auto-rows: min-content
+  grid-gap: 1.5rem 0
+.user-level
+  width: 28rem
+  background-color: #272755
+  border-radius: 1rem
+  @media (max-width: 1250px)
+    width: auto
+.level
+  position: relative
+  width: 100%
+  display: grid
+  place-items: center
+  &__bg
+    width: 16.7rem
+    height: 14rem
+    & img
+      width: 100%
+      height: 100%
+  &__value
+    position: absolute
+    font-size: 4.4rem
+    color: #938fb6
+    font-weight: bold
+
+.level-label
+  position: relative
+  display: grid
+  place-items: center
+  width: 100%
+  height: 3.2rem
+  font-size: 1.4rem
+  font-weight: bold
+  color: #27a15b
+  text-transform: uppercase
+  background-color: var(--bg-b)
+  &:before
+    content: ''
+    position: absolute
+    width: 100%
+    height: 2px
+    top: 0
+    background-image: linear-gradient(90deg, rgba(42,42,82,1) 0%, rgba(96,104,142,1) 49%, rgba(48,56,94,0) 100%)
+  &:after
+    content: ''
+    position: absolute
+    width: 100%
+    height: 2px
+    bottom: 0
+    background-image: linear-gradient(90deg, rgba(42,42,82,1) 0%, rgba(96,104,142,1) 49%, rgba(48,56,94,0) 100%)
+
+.next-level
+  width: 100%
+  height: 5rem
+  display: grid
+  place-items: center
+  place-content: center
+  grid-template: min-content min-content / 1fr
+  grid-gap: 5px 0
+  &__count
+    font-size: 1.4rem
+    font-weight: bold
+    color: #27a15b
+  &__next
+    font-size: 1.2rem
+    font-weight: 300
+    color: #fff
+
+.user-delimiter
+  height: 4rem
+  width: 1px
+  background-color: #202046
+
+.user-withdrawal
+  display: grid
+  grid-auto-flow: column
+  grid-template-columns: 7rem 0.1rem 1fr 1fr
+  place-items: center
+  place-content: center
+  width: 100%
+  height: 6rem
+  padding-right: 1.5rem
+  background-color: var(--bgc-e)
+  border-radius: 1rem
+  &__balance
+    font-size: 1.8rem
+    font-weight: 700
+    color: #27a15b
+  &__withdrawal
+    font-size: 1.1rem
+    text-transform: uppercase
+    color: #fff
+    padding: 0 2rem
+    height: 2.5rem
+    background-color: #50a869
+    border: none
+    border-radius: 1rem
+    outline: none
+    transition: background-color .3s
+    cursor: pointer
+    &:hover
+      background-color: darken(#50a869, 10%)
+    &:active
+      background-color: darken(#50a869, 15%)
+
+.user-invited
+  display: grid
+  grid-auto-flow: column
+  grid-template-columns: 7rem 0.1rem 1fr
+  place-items: center
+  place-content: center
+  width: 100%
+  height: 6rem
+  padding-right: 1.5rem
+  background-color: var(--bgc-e)
+  border-radius: 1rem
+  &-value
+    display: grid
+    grid-template-rows: min-content min-content
+    place-items: center
+    &__value
+      font-size: 1.8rem
+      font-weight: 700
+      color: #fff
+    &__descr
+      font-size: 1.1rem
+      color: #fff
+      text-transform: uppercase
+
+.user-percent
+  display: grid
+  grid-auto-flow: column
+  grid-template-columns: 7rem 0.1rem 1fr
+  place-items: center
+  place-content: center
+  width: 100%
+  height: 6rem
+  padding-right: 1.5rem
+  background-color: var(--bgc-e)
+  border-radius: 1rem
+  &-value
+    display: grid
+    grid-template-rows: min-content min-content
+    place-items: center
+    &__value
+      font-size: 1.8rem
+      font-weight: 700
+      color: #fff
+    &__descr
+      font-size: 1.1rem
+      color: #fff
+      text-transform: uppercase
+
+.personal-stat
+  display: grid
+  grid-auto-rows: min-content
+  grid-gap: 2rem 0
+  width: 100%
+
+.ref-form
+  display: grid
+  grid-template-columns: min-content 1fr
+  place-items: center
+  grid-gap: 0 1rem
+  padding: 0 2rem
+  width: 100%
+  height: 10rem
+  background-color: var(--bgc-e)
+  border-radius: 1rem
+  @media (max-width: 450px)
+    padding: 0 1rem
+  &-mob
+    display: none
+    @media (max-width: 1250px)
+      display: grid
+    @media (max-width: 450px)
+      height: 5rem
+  &-desk
+    display: grid
+    @media (max-width: 1250px)
+      display: none
+  &__label
+    display: grid
+    place-content: center
+    font-size: 1.1rem
+    color: #fff
+    height: 4rem
+    padding: 0 3rem
+    border-radius: 2rem 0 0 2rem
+    background-color: #50a869
+    white-space: nowrap
+    @media (max-width: 450px)
+      height: 3rem
+      padding: 0 1rem
+
+.ref-link
+  display: grid
+  grid-template-columns: 1fr 1.4rem
+  grid-gap: 1rem
+  place-items: center
+  width: 100%
+  height: 4rem
+  padding: 0 3rem
+  background-color: var(--bg-b)
+  border-radius: 0 2rem 2rem 0
+  @media (max-width: 450px)
+    height: 3rem
+    padding: 0 1rem
+  &__input
+    font-size: 1.2rem
+    font-weight: 300
+    color: #27a15b
+    overflow: hidden
+    text-overflow: ellipsis
+    width: 100%
+    background-color: var(--bg-b)
+
+.ref-toggle
+  display: grid
+  grid-template-columns: 1fr 1fr
+  grid-gap: 0 2rem
+  &__btn
+    display: grid
+    place-content: center
+    font-size: 1.1rem
+    color: #fff
+    text-transform: uppercase
+    width: 100%
+    height: 3rem
+    border: 1px solid #2e2f5b
+    border-radius: 1rem
+    cursor: pointer
+    transition: .2s
+    &-active
+      color: #27a15b
+      border-color: #27a15b
+
+.ref-info
+  display: grid
+  grid-gap: 1rem 0
+  width: 100%
+  background-color: var(--bgc-e)
+  padding: 2rem
+  border-radius: 1rem
+  @media (max-width: 450px)
+    padding: 1rem
+  &__header
+    display: flex
+    justify-content: space-between
+    padding: 0 3rem
+    color: #fff
+    text-transform: uppercase
+    @media (max-width: 450px)
+      display: none
+    &-element
+      width: 25%
+      text-align: center
+      white-space: nowrap
+      overflow: hidden
+      text-overflow: ellipsis
+      &:first-child
+        text-align: left
+      &:last-child
+        text-align: right
+  &__level
+    display: flex
+    justify-content: space-between
+    align-items: center
+    padding: 0 3rem
+    width: 100%
+    height: 3.5rem
+    background-color: var(--bg-b)
+    border-radius: 1rem
+    font-size: 1.2rem
+    color: #fff
+    @media (max-width: 450px)
+      padding: 0 1rem
+    &-element
+      width: 25%
+      text-align: center
+      &:first-child
+        text-align: left
+      &:last-child
+        text-align: right
+    &-active
+      color: #27a15b

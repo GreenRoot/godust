@@ -1,0 +1,496 @@
+.panel
+  display: grid
+  grid-template: min-content 1fr / 1fr
+  grid-gap: var(--main-gap)
+  width: 100%
+  height: 100%
+
+.mode
+  display: grid
+  grid-template: min-content / 1fr 1fr
+  width: 100%
+  height: 14rem
+  border-radius: 1rem
+  background-color: #202046
+  @media (max-device-height : 830px)
+    height: 8rem
+  @media (max-height : 830px)
+    height: 8rem
+  &__toggle
+    display: grid
+    grid-auto-rows: min-content
+    grid-gap: 1rem 0
+    place-content: center
+    place-items: center
+    height: 14rem
+    border-radius: 1rem
+    background-color: #202046
+    cursor: pointer
+    transition: .2s
+    color: #63637e
+    fill: #63637e
+    @media (max-device-height : 830px)
+      grid-gap: .5rem 0
+      height: 8rem
+    @media (max-height : 830px)
+      grid-gap: .5rem 0
+      height: 8rem
+    &:hover
+      background-color: darken(#202046, 1%)
+    &.lazy_link__active
+      background-color: #2e2f5b
+      color: #fff
+      fill: #fff
+      &:hover
+        background-color: darken(#2e2f5b, 1%)
+  &__title
+    font-size: 1.8rem
+    color: inherit
+    font-weight: 700
+    text-transform: uppercase
+
+.control
+  display: grid
+  grid-template-rows: repeat(2, min-content) 1fr
+  grid-auto-rows: min-content
+  grid-gap: 1.5rem 0
+  padding: 1.5rem
+  border-radius: 1rem
+  background-color: #202046
+
+.multipliers
+  display: grid
+  grid-template: repeat(2, min-content) / repeat(5, 1fr)
+  grid-gap: 1.5rem
+  padding: 1.5rem
+  width: 100%
+  border-radius: 1rem
+  background-color: #171b3a
+  &__btn
+    display: grid
+    place-content: center
+    place-items: center
+    font-size: 1.1rem
+    font-weight: 700
+    color: #fff
+    text-transform: uppercase
+    width: auto
+    height: 3rem
+    padding: 0
+    margin: 0
+    border: none
+    outline: none
+    border-radius: 1.5rem
+    background-color: #2f2f5c
+    cursor: pointer
+    transition: background-color .1s
+    &-active
+      background-color: #50a869
+      box-shadow: 0 0 10px 3px rgba(80, 168, 105, 0.53)
+    &-put
+      font-size: 1.6rem
+      font-weight: 400
+      height: 4rem
+      grid-column: 1 / 4
+      background-color: #50a869
+      &:hover
+        background-color: darken(#50a869, 10%)
+      &:active
+        background-color: darken(#50a869, 15%)
+    &-pull
+      background-color: #ba3b3b
+      &:hover
+        background-color: darken(#ba3b3b, 10%)
+      &:active
+        background-color: darken(#ba3b3b, 15%)
+  &__input
+    grid-column: 4 / 6
+    width: 100%
+    height: 4rem
+    border: 2px solid #2e2f5b
+    border-radius: 1.5rem
+    background-color: #202046
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2) inset
+    font-size: 1.6rem
+    color: #fff
+    text-align: center
+    outline: none
+
+.inv-choice
+  display: grid
+  grid-auto-flow: column
+  grid-template: min-content / repeat(4, min-content) 1fr
+  grid-gap: 1.5rem
+  place-items: center
+  padding: 1.5rem
+  width: 100%
+  background-color: #171b3a
+  border-radius: 1.5rem
+  @media (max-width: 992px)
+    grid-template: min-content / repeat(5, min-content)
+    justify-content: space-around
+    grid-gap: 0
+  &__element
+    font-size: 1.2rem
+    font-weight: 300
+    color: #fff
+    text-transform: uppercase
+    line-height: 1.5rem
+    padding: 0 1.5rem
+    white-space: nowrap
+  &__delimiter
+    width: 1px
+    height: 3rem
+    background-color: #2e2f5b
+
+.select-all
+  width: 7.7rem
+  height: 1rem
+  border-radius: .5rem
+  background-color: #27274d
+  margin-bottom: .5rem
+  cursor: pointer
+  &__toggle
+    width: 50%
+    height: 100%
+    background-color: #2f2f5c
+    border-radius: inherit
+    transition: .3s
+    &-active
+      transform: translateX(100%)
+      background-color: #50a869
+
+.inv-wr
+  width: 100%
+  height: 100%
+
+.inv-login
+  display: grid
+  place-content: center
+  place-items: center
+  width: 100%
+  height: 100%
+  background-color: #171b3a
+  border-radius: 1rem
+  &__title
+    font-size: 1.8rem
+    font-weight: 700
+    text-transform: uppercase
+    color: #6d6c7b
+    margin-top: 3rem
+    @media (max-device-height : 830px), (max-height : 830px), (max-width: 992px)
+      margin-top: 1rem
+  &__subtitle
+    font-size: 1.6rem
+    font-weight: 300
+    text-transform: uppercase
+    color: #6d6c7b
+    margin-bottom: 2.5rem
+    @media (max-device-height : 830px), (max-height : 830px), (max-width: 992px)
+      margin-bottom: 1rem
+
+.inv-login-btn
+  display: grid
+  grid-auto-flow: column
+  grid-gap: 0 1rem
+  place-content: center
+  width: 26rem
+  height: 6rem
+  margin-bottom: 2rem
+  border: none
+  border-radius: 3rem
+  background-color: #50a869
+  text-decoration: none
+  transition: .2s
+  outline: none
+  &:hover
+    background-color: darken(#50a869, 10%)
+  &:active
+    background-color: darken(#50a869, 15%)
+
+  &__body
+    text-decoration: none
+    font-size: 1.6rem
+    color: #fff
+
+.inventory
+  display: grid
+  grid-template: min-content min-content / 1fr
+  grid-gap: 1.5rem 0
+  &-mobile
+    grid-template: min-content / 1fr
+  &__items
+    width: 100%
+    height: calc(100vh - 54rem)
+    background-color: #171b3a
+    border-radius: 1rem
+    overflow: hidden
+    overflow-y: scroll
+    @media (max-device-height : 830px)
+      height: calc(100vh - 48rem)
+    @media (max-height : 830px)
+      height: calc(100vh - 48rem)
+    &-mobile
+      height: 23.5rem
+      padding-right: 1rem
+      & .simplebar-track.simplebar-vertical
+        transform: translate(1rem, 5%)
+    &::-webkit-scrollbar
+      width: 0
+    & .simplebar-track.simplebar-vertical
+      background-color: #2e2f5b
+      border-radius: 1rem
+      width: 0.5rem
+      height: 90%
+      transform: translateY(5%)
+    & .simplebar-scrollbar:before
+      top: 0
+      left: 0
+      right: 0
+      bottom: 0
+      background-color: #393a61
+      width: 0.5rem
+      border-radius: 1rem
+
+  &__buttons
+    display: grid
+    grid-auto-flow: column
+    grid-template: min-content / repeat(3, 1fr)
+    grid-gap: 0 2rem
+    width: 100%
+
+.items
+  display: grid
+  grid-template: auto / repeat(3, 1fr)
+  grid-gap: 1rem
+  width: 100%
+  height: 100%
+  padding: 1.5rem
+  &-mobile
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr))
+    padding: 0
+    grid-gap: .5rem
+.item
+  user-select: none
+  display: grid
+  place-content: end
+  place-items: center
+  width: 11.2rem
+  height: 11.5rem
+  background: center no-repeat url("../icons/itemsBG.png") #27274d
+  border-radius: 1rem
+  cursor: pointer
+  transition: (transform, box-shadow) .2s
+  &-selected
+    //border: 1px solid #50a869
+    box-shadow: 0 0 1rem rgba(0, 0, 0, 0.25), 0 0 1rem #50a869 inset
+    transform: scale(1.04)
+  &-mobile
+    width: auto
+    height: auto
+    min-height: 11rem
+    padding-top: 1rem
+    margin: .3rem
+  &__img
+    width: calc(100% - 2rem)
+  &__price
+    font-size: 1.2rem
+    font-weight: 300
+    color: #999
+    padding-bottom: 1.5rem
+
+.skin-market
+  display: grid
+  grid-auto-flow: column
+  grid-gap: 0 .8rem
+  place-content: center
+  height: 4rem
+  border: none
+  outline: none
+  border-radius: 2rem
+  background-color: #50a869
+  transition: background-color .2s
+  cursor: pointer
+  grid-column: 1 / 3
+  &:hover
+    background-color: darken(#50a869, 10%)
+  &:active
+    background-color: darken(#50a869, 15%)
+  &__body
+    font-size: 1.6rem
+    color: #fff
+    text-transform: uppercase
+
+
+.exit-btn
+  display: grid
+  place-items: center
+  font-size: 1.6rem
+  color: #fff
+  text-transform: uppercase
+  height: 4rem
+  border: none
+  outline: none
+  border-radius: 2rem
+  background-color: #ba3b3b
+  text-decoration: none
+  transition: background-color .2s
+  cursor: pointer
+  grid-column: 3 / 4
+  &:hover
+    background-color: darken(#ba3b3b, 10%)
+  &:active
+    background-color: darken(#ba3b3b, 15%)
+
+.mobile-panel
+  display: none
+  @media (max-width: 992px)
+    display: grid
+    grid-gap: 1rem 0
+    width: calc(100% - 2rem)
+    margin: 1rem
+
+.mobile-header
+  width: 100%
+  height: 17rem
+  border-radius: 1rem
+  background-color: var(--bg-b)
+
+.mobile-past
+  position: relative
+  display: grid
+  align-items: center
+.mobile-past-shadow
+  position: absolute
+  width: 100%
+  height: 100%
+  background: transparent
+  background: linear-gradient(90deg, transparent 80%, var(--bg-b) 100%)
+.mobile-past-games
+  display: grid
+  grid-auto-flow: column
+  grid-auto-columns: min-content
+  grid-gap: 0 .4rem
+  align-content: center
+  width: 100%
+  height: 3rem
+  overflow: hidden
+  &__game
+    display: grid
+    place-items: center
+    height: 3rem
+    font-size: 1.25rem
+    font-weight: 500
+    color: #fff
+    text-transform: uppercase
+    padding: 0 1.4rem
+    border-radius: 1rem
+    background-color: #999
+    &-red
+      background-color: #ba3b3b
+    &-green
+      background-color: #50a869
+    &-gold
+      background-color: #e1a400
+    &-purple
+      background-color: #401878
+
+.mobile-multipliers
+  display: grid
+  grid-template: repeat(2, min-content) / repeat(5, 1fr)
+  grid-gap: 1rem
+  width: 100%
+  height: 10rem
+  background-color: #171b3a
+  border-radius: 1rem
+  padding: 1rem
+  &__btn
+    display: grid
+    place-content: center
+    place-items: center
+    font-size: 1.1rem
+    font-weight: 700
+    color: #fff
+    text-transform: uppercase
+    width: auto
+    height: 3rem
+    padding: 0
+    margin: 0
+    border: none
+    outline: none
+    border-radius: 1.5rem
+    background-color: #2f2f5c
+    cursor: pointer
+    transition: background-color .1s
+    &-active
+      background-color: #50a869
+      box-shadow: 0 0 10px 3px rgba(80, 168, 105, 0.53)
+    &-put
+      font-size: 1.6rem
+      font-weight: 400
+      height: 4rem
+      grid-column: 1 / 4
+      background-color: #50a869
+      &:hover
+        background-color: darken(#50a869, 10%)
+      &:active
+        background-color: darken(#50a869, 15%)
+    &-pull
+      background-color: #ba3b3b
+      &:hover
+        background-color: darken(#ba3b3b, 10%)
+      &:active
+        background-color: darken(#ba3b3b, 15%)
+  &__input
+    grid-column: 4 / 6
+    width: 100%
+    height: 4rem
+    border: 2px solid #2e2f5b
+    border-radius: 1.5rem
+    background-color: #202046
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2) inset
+    font-size: 1.6rem
+    color: #fff
+    text-align: center
+    outline: none
+
+
+
+.mobile-count-wr
+  display: grid
+  grid-auto-flow: column
+  grid-gap: 0 1.5rem
+  width: 100%
+
+.mobile-count
+  display: grid
+  place-items: center
+  place-content: center
+  grid-gap: .4rem 0
+  width: auto
+  height: 5rem
+  border-radius: 1rem
+  background-color: #2e2f5b
+  color: #50a869
+  &-bank
+    background-color: #50a869
+    color: #fff
+  &__value
+    font-size: 1.7rem
+    font-weight: 700
+    color: inherit
+    text-transform: uppercase
+  &__label
+    font-size: 1.2rem
+    font-weight: 300
+    color: #fff
+    text-transform: uppercase
+
+.mobile-inv-wr
+  width: 100%
+  height: 25.5rem
+  background-color: #171b3a
+  border-radius: 1rem
+  padding: 1rem 0 1rem 1rem
+
+

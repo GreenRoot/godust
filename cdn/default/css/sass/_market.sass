@@ -1,0 +1,203 @@
+.market
+  position: absolute
+  display: grid
+  grid-template: 3.5rem 1fr 13.5rem / 1fr
+  grid-gap: 2rem 0
+  width: 53rem
+  height: calc(100vh - (var(--header-height) + var(--footer-height) + var(--main-gap)))
+  top: 0
+  left: -53rem
+  padding: 2rem
+  border-radius: 1rem
+  background-color: #171b3a
+  transition: left .2s
+  z-index: 3
+  @media (max-width: 992px)
+    grid-template: 3.5rem 1fr 11.5rem / 1fr
+  &_active
+    left: 0
+    box-shadow: .5rem .5rem 1.5rem 0 #000
+  &__close
+    position: absolute
+    top: 2rem
+    right: 2rem
+    cursor: pointer
+  &__title
+    font-size: 1.8rem
+    color: #fff
+    text-transform: uppercase
+  &__items
+    border-radius: .5rem
+    background-color: #1b1e40
+  &__filter
+    display: grid
+    grid-template: 4.5rem / repeat(3, 1fr)
+    grid-gap: 0 .2rem
+    margin: 1rem 1rem 2rem
+    border-radius: .5rem
+    overflow: hidden
+  &__items-wrapper
+    width: 100%
+    height: calc(100vh - 40.5rem)
+    background-color: #1b1e3f
+    overflow: hidden
+    overflow-y: scroll
+    &::-webkit-scrollbar
+      width: 0
+    & .simplebar-track.simplebar-vertical
+      background-color: #2e2f5b
+      border-radius: 1rem
+      width: 0.5rem
+      height: 90%
+      transform: translateY(5%)
+    & .simplebar-scrollbar:before
+      top: 0
+      left: 0
+      right: 0
+      bottom: 0
+      background-color: #393a61
+      width: 0.5rem
+      border-radius: 1rem
+  &__counter
+    display: grid
+    grid-template: repeat(2, 1fr) / repeat(3, 1fr)
+    grid-gap: 2rem
+
+.filter
+  display: grid
+  grid-auto-flow: column
+  grid-gap: 0 .5rem
+  place-items: center
+  place-content: center
+  background-color: #262850
+  font-size: 1.4rem
+  font-weight: 300
+  color: #63637e
+  cursor: pointer
+  &__down
+    width: 0
+    height: 0
+    border-left: 5px solid transparent
+    border-right: 5px solid transparent
+    border-top: 10px solid #63637e
+  &__up
+    width: 0
+    height: 0
+    border-left: 5px solid transparent
+    border-right: 5px solid transparent
+    border-bottom: 10px solid #63637e
+
+.buy
+  display: grid
+  grid-template: min-content / repeat(4, 1fr)
+  grid-gap: 1rem
+  width: 100%
+  height: 100%
+  padding: 1rem
+  margin: 0
+  &__item
+    display: grid
+    grid-template-columns: 11rem
+    grid-auto-rows: 6rem 1.6rem 1.4rem 1rem 1rem
+    list-style: none
+    place-items: center
+    padding: .5rem 0
+    margin: 0
+    width: 11rem
+    height: 12rem
+    border-radius: 1rem
+    background-color: #202245
+    cursor: pointer
+    transition: box-shadow .2s
+    &-selected
+      box-shadow: 0 0 1rem rgb(0 0 0 / 25%), 0 0 1rem #50a869 inset
+    & img
+      width: calc(100% - 2rem)
+    &-price
+      font-size: 1.1rem
+      font-weight: 600
+      color: #27a15b
+      padding: 0 1rem
+    &-name
+      width: 100%
+      font-size: .9rem
+      font-weight: 300
+      color: #fff
+      padding: 0 1rem
+      white-space: nowrap
+      overflow: hidden
+      text-align: center
+      text-overflow: ellipsis
+    &-label
+      width: 100%
+      font-size: .9rem
+      font-weight: 200
+      color: #fff
+      padding: 0 1rem
+      white-space: nowrap
+      overflow: hidden
+      text-align: center
+      text-overflow: ellipsis
+    &-state
+      width: 100%
+      font-size: .9rem
+      font-weight: 200
+      color: #fff
+      padding: 0 1rem
+      white-space: nowrap
+      overflow: hidden
+      text-align: center
+      text-overflow: ellipsis
+.counter
+  display: grid
+  place-content: center
+  place-items: center
+  border-radius: 1rem
+  background-color: #25284f
+  color: #fff
+  text-transform: uppercase
+  &-green
+    color: #27a15b
+  &-red
+    color: #ba3b3b
+  &-btn
+    grid-row: 2 / 3
+    grid-column: 1 / 3
+    display: grid
+    place-items: center
+    border: none
+    outline: none
+    border-radius: 1rem
+    background-color: #27a15b
+    cursor: pointer
+    font-size: 1.6rem
+    color: #fff
+    text-transform: uppercase
+    &:hover
+      background-color: darken(#27a15b, 5%)
+    &:active
+      background-color: darken(#27a15b, 10%)
+  &-refresh
+    grid-row: 2 / 3
+    grid-column: 3 / 4
+    display: grid
+    place-items: center
+    border: none
+    outline: none
+    border-radius: 1rem
+    background-color: #27a15b
+    cursor: pointer
+    &:hover
+      background-color: darken(#27a15b, 5%)
+    &:active
+      background-color: darken(#27a15b, 10%)
+  & div
+    &:first-child
+      font-size: 1.4rem
+      font-weight: 600
+    &:last-child
+      font-size: 1.2rem
+      font-weight: 300
+
+
+

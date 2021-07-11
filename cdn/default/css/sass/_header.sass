@@ -1,0 +1,176 @@
+header
+  --header-bgc: #2e2f5b
+  grid-area: header
+
+.header
+  width: 100%
+  height: 100%
+  display: grid
+  grid-template-columns: 1fr min-content min-content min-content
+  grid-template-rows: 1fr
+  align-items: center
+  gap: 0 .2rem
+  grid-template-areas: "logo social balance deposit"
+  @media (max-width: 1200px)
+    grid-template-columns: 1fr min-content min-content
+    grid-template-areas: "logo balance deposit"
+  @media (max-width: 992px)
+    gap: 0
+  &__logo
+    grid-area: logo
+    display: grid
+    grid-template-columns: min-content min-content
+    grid-template-rows: 1fr
+    grid-gap: 0 9rem
+    align-items: center
+    height: 100%
+    padding: 0 5rem
+    background-color: var(--header-bgc)
+    @media (max-width: 1400px)
+      grid-gap: 0 2rem
+      padding: 0 2rem
+    @media (max-width: 992px)
+      grid-template-columns: min-content
+      grid-gap: 0
+      padding: 0 1rem
+  &__social
+    grid-area: social
+    display: grid
+    grid-auto-flow: column
+    grid-gap: 0 2rem
+    place-items: center
+    height: 100%
+    padding: 0 3rem
+    background-color: var(--header-bgc)
+    @media (max-width: 1200px)
+      display: none
+  &__balance
+    grid-area: balance
+    display: grid
+    grid-auto-flow: column
+    grid-gap: 0 2rem
+    place-items: center
+    height: 100%
+    padding: 0 3rem
+    background-color: var(--header-bgc)
+    @media (max-width: 992px)
+      grid-gap: 0 1.5rem
+      padding: 0 .5rem
+  &__deposit
+    display: grid
+    place-items: center
+    grid-area: deposit
+    height: 100%
+    padding: 0 3rem
+    background-color: var(--header-bgc)
+    @media (max-width: 992px)
+      padding: 0 .5rem
+
+.logo
+  width: 16.7rem
+  height: 3.6rem
+  background: url("../icons/logo.svg") no-repeat center
+  cursor: pointer
+  @media (max-width: 992px)
+    width: 10rem
+    height: 2.2rem
+
+.top-menu
+  display: grid
+  grid-auto-flow: column
+  grid-gap: 6rem
+  user-select: none
+  @media (max-width: 1400px)
+    grid-gap: 2rem
+  @media (max-width: 992px)
+    display: none
+  &__link
+    font-size: 1.6rem
+    font-weight: lighter
+    text-transform: uppercase
+    color: #999
+    cursor: pointer
+    transition: .2s
+    white-space: nowrap
+    &:hover
+      color: lighten(#999, 50%)
+    &.lazy_link__active
+      color: #f1f1f1
+      &:hover
+        color: lighten(#f1f1f1, 50%)
+
+
+.user-icon
+  width: 4rem
+  height: 4rem
+  border-radius: 50%
+  border: 2px solid #50a869
+  overflow: hidden
+  user-select: none
+  cursor: pointer
+  & img
+    width: 100%
+  @media (max-width: 992px)
+    width: 2.5rem
+    height: 2.5rem
+
+.user-balance
+  font-size: 2rem
+  font-weight: bold
+  color: #50a869
+  filter: drop-shadow(0 0 5px #07b247)
+
+.sound-set
+  @media(max-width: 992px)
+    display: none
+  &__mob
+    display: block
+
+.language-set
+  width: 3rem
+  height: 3rem
+  border-radius: 50%
+  border: 2px solid #fff
+  overflow: hidden
+  user-select: none
+  cursor: pointer
+  & img
+    width: 100%
+    height: 100%
+  @media (max-width: 992px)
+    display: none
+  &__mob
+    display: block
+
+.button
+  display: grid
+  grid-auto-flow: column
+  grid-gap: .8rem
+  place-items: center
+  background-color: #50a869
+  border-radius: 50px
+  padding: 0 2rem
+  height: 3.3rem
+  transition: .2s
+  text-decoration: none
+  user-select: none
+  cursor: pointer
+  &:hover
+    background-color: darken(#50a869, 10%)
+  @media (max-width: 992px)
+    padding: 0 .8rem
+    height: 3rem
+  &__body
+    font-size: 1.4rem
+    color: #fff
+    text-transform: uppercase
+    line-height: 1.4rem
+    @media (max-width: 992px)
+      font-size: 1.25rem
+      line-height: 1.25rem
+  &__append
+    line-height: .8rem
+  &__icon
+    width: 1.4rem
+    height: 1.4rem
+    fill: #fff

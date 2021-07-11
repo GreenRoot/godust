@@ -1,0 +1,226 @@
+// переменные
+*
+  // высота шапки
+  --header-height: 7rem
+  @media (max-width: 992px)
+    --header-height: 4rem
+
+  //высота футера
+  --footer-height: 0rem
+  @media (max-width: 992px)
+    --footer-height: 6rem
+
+  // отступ между главными блоками
+  --main-gap: 2rem
+  @media (max-width: 992px)
+    --main-gap: 1rem
+
+  // ширина левого блока
+  --nav-width: 44rem
+
+  // ширина чата
+  --aside-width: 44rem
+  @media (max-width: 500px)
+    --aside-width: 100%
+
+  // bgc элетемнов
+  --bgc-e: #272755
+  --br-e: 1rem
+
+  // bgc блоков
+  --bg-b: #202046
+
+// стандартные стили
+// размер шрифта в 10px для  1rem = 10px
+*
+  box-sizing: border-box
+html
+  font-size: 10px
+h1, h2, h3, h4, h5, h6
+  margin: 0
+  padding: 0
+  text-decoration: none
+  font-style: normal
+body
+  width: 100%
+  height: 100%
+  font-family: 'Roboto', sans-serif
+  margin: 0
+  padding: 0
+  position: fixed
+  top: 0
+  right: 0
+  left: 0
+  bottom: 0
+.body
+  --bgcolor: #252a50
+  position: relative
+  font-family: 'Roboto', sans-serif
+  margin: 0
+  padding: 0
+  background-color: var(--bgcolor)
+  overflow: hidden
+  width: 100%
+  height: 100%
+  display: grid
+  grid-template-columns: var(--nav-width) 1fr 1fr var(--aside-width)
+  grid-template-rows: minmax(var(--header-height), var(--header-height)) min-content
+  gap: var(--main-gap)
+  grid-template-areas: "header header header header" "nav main main main" "nav main main main"
+  @media (max-width: 992px)
+    grid-template-columns: 100%
+    grid-template-rows: var(--header-height) min-content 6rem
+    gap: var(--main-gap) 0
+    grid-template-areas: "header" "main" "footer"
+
+.body_games_height
+  @media (max-width: 992px)
+    grid-template-rows: var(--header-height) calc(100vh - (var(--header-height) + var(--footer-height) + var(--main-gap))) 6rem
+
+@import "sass/icons"
+@import "sass/header"
+@import "sass/dev"
+@import "sass/personal"
+@import "sass/panel"
+@import "sass/aside"
+@import "sass/crash"
+@import "sass/classic"
+@import "sass/deposit"
+@import "sass/market"
+@import "sass/history"
+@import "sass/support"
+@import "sass/footer"
+
+nav
+  grid-area: nav
+  height: calc(100vh - (var(--header-height) + var(--main-gap)))
+  margin-left: var(--main-gap)
+main
+  position: relative
+  grid-area: main
+  margin-right: calc(var(--aside-width) + var(--main-gap))
+  border-radius: 1rem
+  overflow: hidden
+  transition: margin .2s
+  @media (max-width: 1720px)
+    margin-right: 2rem
+  @media (max-width: 1200px)
+    border-radius: 0
+  @media (max-width: 992px)
+    margin: 0
+
+.overflow-y
+  overflow-y: scroll
+  &::-webkit-scrollbar
+    width: 0
+
+aside
+  position: absolute
+  right: 0
+  bottom: var(--footer-height)
+  width: var(--aside-width)
+  height: calc(100vh - (var(--header-height) + var(--main-gap) + var(--footer-height)))
+  grid-area: aside
+  border-radius: 1rem 0 0 1rem
+  background: #272755
+  box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.2)
+  transition: transform .2s
+  z-index: 10
+  @media (max-width: 992px)
+    position: fixed
+    border-radius: 0
+
+footer
+  display: none
+  @media (max-width: 992px)
+    position: fixed
+    bottom: 0
+    grid-area: footer
+    display: flex
+    justify-content: space-around
+    align-items: center
+    width: 100%
+    height: 6rem
+    background-color: #2e2f5b
+    z-index: 11
+
+.main-scroll-wrapper
+  border-radius: 1rem
+  height: calc(100vh - (var(--header-height) + var(--main-gap) + var(--footer-height)))
+  overflow: hidden
+  overflow-y: scroll
+  &::-webkit-scrollbar
+    width: 0
+  & .simplebar-track.simplebar-vertical
+    background-color: #2e2f5b
+    border-radius: 1rem
+    width: .5rem
+    height: 96%
+    transform: translateY(2%)
+  & .simplebar-scrollbar:before
+    top: 0
+    left: 0
+    right: 0
+    bottom: 0
+    background-color: #393a61
+    width: .5rem
+    border-radius: 1rem
+  @media (max-width: 1200px)
+    & .simplebar-track.simplebar-vertical
+      background-color: transparent
+    & .simplebar-scrollbar:before
+      background-color: #393A617F
+.support-wr
+  background-color: var(--bg-b)
+  @media (max-width: 1200px)
+    border-radius: 0
+    background-color: #171b3a
+
+.page-title
+  display: grid
+  grid-auto-flow: column
+  grid-gap: 0 1rem
+  align-items: center
+  justify-content: start
+  font-size: 1.4rem
+  line-height: 1rem
+  color: #fff
+  font-weight: 500
+  text-transform: uppercase
+  white-space: nowrap
+  @media (max-width: 1200px)
+    padding-left: 2rem
+    padding-bottom: 1.5rem
+    border-bottom: 1rem solid #272755
+    width: calc(100% + 4rem)
+    transform: translateX(-2rem)
+
+.hide
+  opacity: 0
+  position: relative
+  z-index: -1
+  pointer-events: none
+  overflow: hidden
+  height: 0
+  padding-top: 0
+  padding-bottom: 0
+  margin-top: 0
+  margin-bottom: 0
+  border: 0
+.disable
+  position: relative
+  user-select: none
+  cursor: no-drop
+  &:before
+    content: ''
+    position: absolute
+    width: 100%
+    height: 100%
+    border-radius: 1.5rem
+    background-color: rgba(23, 27, 58, 0.1)
+    backdrop-filter: blur(1px) saturate(100%) contrast(100%) brightness(80%)
+    z-index: 2
+
+.simplebar-track
+  z-index: 0
+

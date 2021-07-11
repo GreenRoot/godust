@@ -1,0 +1,201 @@
+.aside
+  --chat-header: 9rem
+  width: 100%
+  height: 100%
+  border-radius: 1rem
+  overflow: hidden
+  z-index: 10
+  @media (max-width: 992px)
+    --chat-header: 5.5rem
+    border-radius: 0
+
+.aside-toggle
+  user-select: none
+  display: grid
+  grid-gap: 0 .4rem
+  grid-template: min-content / repeat(2, 1fr)
+  grid-template-areas: 'chatBtn bonusBtn'
+  @media (max-width: 992px)
+    display: none
+  &__button
+    display: grid
+    place-content: center
+    width: 100%
+    height: var(--chat-header)
+    background-color: #2e2f5b
+    cursor: pointer
+    color: #999
+    fill: #999
+    &:hover
+      background-color: darken(#2e2f5b, 1%)
+    &:active
+      background-color: darken(#2e2f5b, 2%)
+    &-active
+      color: #fff
+      fill: #fff
+
+.aside-header
+  display: none
+  align-items: center
+  font-size: 1.3rem
+  font-weight: 500
+  text-transform: uppercase
+  color: #fff
+  padding: 0 2.5rem
+  box-shadow: 0 1rem 2rem #0000007F
+  @media (max-width: 992px)
+    display: flex
+    width: 100%
+    height: var(--chat-header)
+  &__icon
+    width: 2.2rem
+    height: 2rem
+    margin-right: .8rem
+    fill: #63637e
+    overflow: hidden
+
+#chatBtn
+  grid-area: chatBtn
+#bonusBtn
+  grid-area: bonusBtn
+
+.online
+  display: grid
+  grid-auto-flow: column
+  grid-gap: 0 1rem
+  place-items: center
+  color: inherit
+  &__prepend
+    width: 1rem
+    height: 1rem
+    border-radius: 50%
+    background-color: #50a869
+    box-shadow: 0 0 .5rem .1rem #50a869
+  &__body
+    display: grid
+    grid-auto-flow: column
+    grid-gap: 0 .5rem
+    font-size: 1.4rem
+    font-weight: 500
+    text-transform: uppercase
+
+.bonus__prepend
+
+
+
+.chat-wr
+
+.chat
+  height: calc(100vh - (var(--header-height) + var(--main-gap) + var(--chat-header) + 9rem + var(--footer-height)))
+  overflow: hidden
+  overflow-y: scroll
+  &::-webkit-scrollbar
+    width: 0
+  & .simplebar-track.simplebar-vertical
+    background-color: #2e2f5b
+    border-radius: 1rem
+    width: .5rem
+    height: 96%
+    transform: translateY(2%)
+  & .simplebar-scrollbar:before
+    top: 0
+    left: 0
+    right: 0
+    bottom: 0
+    background-color: #5c5c93
+    width: .5rem
+    border-radius: 1rem
+
+.messages
+  height: 100%
+  display: flex
+  flex-direction: column
+  list-style: none
+  margin: 0
+  padding: 1.5rem
+.message
+  display: grid
+  grid-gap: .5rem 0
+  list-style: none
+  margin: 1rem 0 0
+  padding: 0
+  &__author
+    display: grid
+    grid-template: min-content / min-content 1fr min-content
+    grid-gap: 0 1rem
+    align-items: center
+    &-pic
+      width: 3.4rem
+      height: 3.4rem
+      border-radius: 50%
+      border: 2px solid #3c486a
+      overflow: hidden
+      & img
+        width: 100%
+        height: 100%
+        object-fit: cover
+    &-name
+      font-size: 1.4rem
+      color: #fff
+  &__time
+    font-size: 1.1rem
+    font-weight: 300
+    color: #63637e
+  &__text
+    background-color: #202046
+    border-radius: 1rem
+    padding: 2rem
+    font-size: 1.2rem
+    font-weight: 300
+    color: #fff
+.chat-input
+  display: grid
+  grid-template: min-content / 1fr min-content
+  grid-gap: 0 2rem
+  width: calc(100% - 3rem)
+  background-color: #1d1d3f
+  border-radius: 1rem
+  margin: 1.5rem
+  padding: 2rem
+  &__input
+    border: none
+    outline: none
+    background-color: transparent
+    font-size: 1.4rem
+    color: #fff
+    &::placeholder
+      font-size: 1.1rem
+      font-weight: 300
+      color: #6c7083
+      font-style: italic
+  &__send
+    display: grid
+    place-items: center
+    width: 2.3rem
+    height: 2.2rem
+    padding: 0
+    margin: 0
+    background-color: #31325a
+    border: none
+    border-radius: .5rem
+    cursor: pointer
+
+.bonus-wr
+  width: 100%
+  height: 100%
+  display: flex
+  justify-content: center
+  align-items: center
+  background-color: black
+  & img
+    height: 25rem
+
+.chat-close-aside
+  transform: translateX(46rem)
+  @media (max-width: 500px)
+    transform: translateX(50rem)
+.chat-close-main
+  margin-right: 2rem
+  @media (max-width: 992px)
+    margin-right: 0
+
