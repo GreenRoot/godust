@@ -1,3 +1,7 @@
+.test2 {
+  color: #ff0066;
+}
+
 * {
   --header-height: 7rem;
   --footer-height: 0rem;
