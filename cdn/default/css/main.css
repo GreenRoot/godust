@@ -1,4 +1,9 @@
+.test {
+  color: #000;
+}
+
 * {
+  background-color: gold;
   --header-height: 7rem;
   --footer-height: 0rem;
   --main-gap: 2rem;
@@ -1224,10 +1229,6 @@ header {
 }
 .ref-info__level-active {
   color: #27a15b;
-}
-
-.personal-account__footer {
-  margin-bottom: 3rem;
 }
 
 .panel {
