@@ -2,6 +2,10 @@
   color: #ff0066;
 }
 
+.test3 {
+  color: #1b1e40;
+}
+
 * {
   --header-height: 7rem;
   --footer-height: 0rem;
@@ -652,6 +656,10 @@ header {
   width: 1.4rem;
   height: 1.4rem;
   fill: #fff;
+}
+
+.test6 {
+  color: #1a1c3f;
 }
 
 .dev {
