@@ -1,11 +1,3 @@
-.test2 {
-  color: green;
-}
-
-.test3 {
-  color: #1b1e40;
-}
-
 * {
   --header-height: 7rem;
   --footer-height: 0rem;
@@ -1358,24 +1350,33 @@ body[page_open]:not([page_open=classic__type_main]) .control #multipliers_for_cl
 
 .multipliers {
   display: grid;
-  grid-template: repeat(2, min-content)/repeat(5, 1fr);
+  grid-template: 3rem 4rem/repeat(5, 1fr);
   grid-gap: 1.5rem;
   padding: 1.5rem;
   width: 100%;
   border-radius: 1rem;
   background-color: #171b3a;
 }
+.multipliers__text {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 1.6rem;
+  grid-row: 1/2;
+  grid-column: 1/6;
+}
 .multipliers__btn {
-  display: grid;
-  place-content: center;
-  place-items: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   font-size: 1.1rem;
   font-weight: 700;
   color: #fff;
   text-transform: uppercase;
   width: auto;
   height: 3rem;
-  padding: 0;
+  padding: 0 2rem;
   margin: 0;
   border: none;
   outline: none;
@@ -1392,7 +1393,7 @@ body[page_open]:not([page_open=classic__type_main]) .control #multipliers_for_cl
   font-size: 1.6rem;
   font-weight: 400;
   height: 4rem;
-  grid-column: 1/4;
+  grid-column: 1/6;
   background-color: #50a869;
 }
 .multipliers__btn-put:hover {
@@ -1410,10 +1411,31 @@ body[page_open]:not([page_open=classic__type_main]) .control #multipliers_for_cl
 .multipliers__btn-pull:active {
   background-color: #802929;
 }
+.multipliers__btn-classic {
+  grid-row: 2/3;
+  grid-column: 1/4;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.6rem;
+  font-weight: 400;
+  color: #fff;
+  text-transform: uppercase;
+  width: auto;
+  height: 4rem;
+  padding: 0 2rem;
+  margin: 0;
+  border: none;
+  outline: none;
+  border-radius: 1.5rem;
+  background-color: #50a869;
+  cursor: pointer;
+  transition: background-color 0.1s;
+}
 .multipliers__input {
   grid-column: 4/6;
   width: 100%;
-  height: 4rem;
+  height: 3rem;
   border: 2px solid #2e2f5b;
   border-radius: 1.5rem;
   background-color: #202046;
@@ -1422,6 +1444,41 @@ body[page_open]:not([page_open=classic__type_main]) .control #multipliers_for_cl
   color: #fff;
   text-align: center;
   outline: none;
+}
+.multipliers__input-classic {
+  grid-column: 4/6;
+  grid-row: 2/3;
+  height: 4rem;
+}
+
+#control_menu_of_bet[data-menu_active] {
+  --menu__classic: none;
+  --menu__crash: none;
+  --menu__empty: none;
+}
+
+#control_menu_of_bet[data-menu_active=classic] {
+  --menu__classic: grid;
+}
+
+#control_menu_of_bet[data-menu_active=crash] {
+  --menu__crash: grid;
+}
+
+#control_menu_of_bet[data-menu_active=empty] {
+  --menu__empty: grid;
+}
+
+#control_menu_of_bet [data-menu_name=classic] {
+  display: var(--menu__classic);
+}
+
+#control_menu_of_bet [data-menu_name=crash] {
+  display: var(--menu__crash);
+}
+
+#control_menu_of_bet [data-menu_name=empty] {
+  display: var(--menu__empty);
 }
 
 .inv-choice {
@@ -4566,6 +4623,10 @@ footer {
   background-color: rgba(23, 27, 58, 0.1);
   backdrop-filter: blur(1px) saturate(100%) contrast(100%) brightness(80%);
   z-index: 2;
+}
+
+.none {
+  display: none;
 }
 
 .simplebar-track {

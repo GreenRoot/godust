@@ -94,37 +94,59 @@
                 </a>
             </div>
             <div class="control">
-                <div id="multipliers" class="multipliers disable">
-                    <button class="multipliers__btn">
-                        <svg class="icon-endlessly">
-                            <use xlink:href="#icon-endlessly"></use>
-                        </svg>
-                    </button>
-                    <button class="multipliers__btn">x1.1</button>
-                    <button class="multipliers__btn">x1.5</button>
-                    <button class="multipliers__btn multipliers__btn-active">x2</button>
-                    <button class="multipliers__btn">x3</button>
-                    <button class="multipliers__btn multipliers__btn-put">Поставить</button> <!-- multipliers__btn-pull для красной кнопки -->
-                    <input type="text" class="multipliers__input" placeholder="0">
+                <div id="#control_menu_of_bet" class="control-panel" data-menu_active="classic">
+                    <div class="multipliers" data-menu_name="classic">
+                        <div class="multipliers__text">Мин. предметов в ставке - 3</div>
+                        <input type="text" class="multipliers__input multipliers__input-classic" placeholder="0">
+                        <button class="multipliers__btn-classic">Поставить</button> <!-- добавить multipliers__btn-pull для красной кнопки -->
+                    </div>
+                    <div class="multipliers" data-menu_name="crash">
+                        <button class="multipliers__btn">
+                            <svg class="icon-endlessly">
+                                <use xlink:href="#icon-endlessly"></use>
+                            </svg>
+                        </button>
+                        <button class="multipliers__btn multipliers__btn-active">x1.5</button>
+                        <button class="multipliers__btn">x2.0</button>
+                        <input type="text" class="multipliers__input" placeholder="0">
+                        <button class="multipliers__btn multipliers__btn-put">
+                            <div>Поставить</div>
+                            <div>50$</div>
+                        </button> <!-- добавить multipliers__btn-pull для красной кнопки -->
+                    </div>
+                    <div class="multipliers disable" data-menu_name="empty">
+                        <button class="multipliers__btn">
+                            <svg class="icon-endlessly">
+                                <use xlink:href="#icon-endlessly"></use>
+                            </svg>
+                        </button>
+                        <button class="multipliers__btn">x1.5</button>
+                        <button class="multipliers__btn">x2.0</button>
+                        <input type="text" class="multipliers__input" placeholder="0">
+                        <button class="multipliers__btn multipliers__btn-put">
+                            <div>Поставить</div>
+                            <div>50$</div>
+                        </button> <!-- добавить multipliers__btn-pull для красной кнопки -->
+                    </div>
                 </div>
                 <div id="invChoice" class="inv-choice disable">
-                    <div class="inv-choice__element">
-                        <div>0.03$</div>
-                        <div>Баланс</div>
-                    </div>
-                    <div class="inv-choice__delimiter"></div>
-                    <div class="inv-choice__element">
-                        <div>0.00$</div>
-                        <div>Выбранно</div>
-                    </div>
-                    <div class="inv-choice__delimiter"></div>
-                    <div class="inv-choice__element">
-                        <div class="select-all">
-                            <div class="select-all__toggle select-all__toggle-active"></div>
-                        </div>
-                        <div>Выбрать всё</div>
-                    </div>
+                <div class="inv-choice__element">
+                    <div>0.03$</div>
+                    <div>Баланс</div>
                 </div>
+                <div class="inv-choice__delimiter"></div>
+                <div class="inv-choice__element">
+                    <div>0.00$</div>
+                    <div>Выбранно</div>
+                </div>
+                <div class="inv-choice__delimiter"></div>
+                <div class="inv-choice__element">
+                    <div class="select-all">
+                        <div class="select-all__toggle select-all__toggle-active"></div>
+                    </div>
+                    <div>Выбрать всё</div>
+                </div>
+            </div>
                 <div class="inv-wr">
                     <div id="inventory" class="inventory hide">
                         <div class="inventory__items" data-simplebar>
