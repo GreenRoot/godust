@@ -1454,19 +1454,17 @@ body[page_open]:not([page_open=classic__type_main]) .control #multipliers_for_cl
 #control_menu_of_bet[data-menu_active] {
   --menu__classic: none;
   --menu__crash: none;
-  --menu__empty: none;
+  --menu__empty: grid;
 }
 
 #control_menu_of_bet[data-menu_active=classic] {
   --menu__classic: grid;
+  --menu__empty: none;
 }
 
 #control_menu_of_bet[data-menu_active=crash] {
   --menu__crash: grid;
-}
-
-#control_menu_of_bet[data-menu_active=empty] {
-  --menu__empty: grid;
+  --menu__empty: none;
 }
 
 #control_menu_of_bet [data-menu_name=classic] {
