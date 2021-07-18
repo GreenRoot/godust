@@ -284,8 +284,12 @@
   &__win
     display: grid
     grid-auto-flow: column
+    place-items: center
     justify-content: end
     width: 100%
+    & .crash-bet__bet
+      border-color:  white
+      color: white
     @media (max-width: 1250px)
       display: none
   &__win-item

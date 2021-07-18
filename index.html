@@ -15,6 +15,27 @@
 <iframe src="cdn/default/icons/sprite.svg" onload="this.before(this.contentDocument.children[0]);this.remove();"></iframe>
 <!--    -->
 <div id="body" class="body">
+    <div class="moder-chat">
+        <form class="moder-popup">
+            <div class="moder-popup__title">Бан Чата</div>
+            <input type="number" class="moder-popup__input" placeholder="Время бана чата в минутах">
+            <button class="moder-popup__btn moder-popup__btn-green">Размутить</button>
+            <div class="moder-popup-btns">
+                <button class="moder-popup__btn" style="grid-area: min1">5 минут</button>
+                <button class="moder-popup__btn" style="grid-area: min15">15 минут</button>
+                <button class="moder-popup__btn" style="grid-area: hour">Час</button>
+                <button class="moder-popup__btn" style="grid-area: day">Сутки</button>
+                <button class="moder-popup__btn" style="grid-area: week">Неделя</button>
+                <button class="moder-popup__btn" style="grid-area: perma">Навсегда</button>
+            </div>
+            <input type="text" class="moder-popup__input" placeholder="Укажите причину">
+            <div class="moder-popup-checkbox">
+                <input id="moder-popup__checkbox" type="checkbox" class="moder-popup__checkbox">
+                <label for="moder-popup__checkbox" class="moder-popup__checkbox">Оповестить чат</label>
+            </div>
+            <button class="moder-popup__btn-send">Выполнить</button>
+        </form>
+    </div>
     <header>
         <div class="header">
             <div class="header__logo">
@@ -882,9 +903,7 @@
                             </div>
                             <div class="crash-bet__status">5.00x</div>
                             <div class="crash-bet__win">
-                                <div class="crash-bet__win-item">
-                                    <img src="https://media.steampowered.com/apps/730/icons/econ/default_generated/weapon_scar20_so_stormfront_light_large.3bebdbcd4ea2ae851cdd2a06d0663121d01ebd79.png" alt="weapon">
-                                </div>
+                                <div class="crash-bet__bet">45,66$</div>
                                 <div class="crash-bet__win-item">
                                     <img src="https://steamcdn-a.akamaihd.net/apps/730/icons/econ/stickers/krakow2017/fntc_graffiti_large.0ede0c168a27411a2523a15b65dc7dc459ca7aa1.png" alt="weapon">
                                 </div>
@@ -2480,13 +2499,31 @@
             </div>
             <div id="chat" class="chat-wr">
                 <div class="chat" data-simplebar>
-                    <ul class="messages">
+                    <!--data-moder-active = active для активной модерки-->
+                    <ul class="messages" data-moder-active="active">
                         <li class="message">
                             <div class="message__author">
                                 <div class="message__author-pic">
                                     <img src="cdn/default/icons/user03.jpg" alt="user">
                                 </div>
                                 <div class="message__author-name">Dior</div>
+                                <div class="message-moder">
+                                    <button class="message-moder__btn">
+                                        <svg class="icon-user-ban">
+                                            <use xlink:href="#icon-user-ban"></use>
+                                        </svg>
+                                    </button>
+                                    <button class="message-moder__btn">
+                                        <svg class="icon-ban">
+                                            <use xlink:href="#icon-ban"></use>
+                                        </svg>
+                                    </button>
+                                    <button class="message-moder__btn">
+                                        <svg class="icon-trash">
+                                            <use xlink:href="#icon-trash"></use>
+                                        </svg>
+                                    </button>
+                                </div>
                                 <div class="message__time">
                                     18:00
                                 </div>
@@ -2499,6 +2536,23 @@
                                     <img src="cdn/default/icons/user03.jpg" alt="user">
                                 </div>
                                 <div class="message__author-name">Dior</div>
+                                <div class="message-moder">
+                                    <button class="message-moder__btn">
+                                        <svg class="icon-user-ban">
+                                            <use xlink:href="#icon-user-ban"></use>
+                                        </svg>
+                                    </button>
+                                    <button class="message-moder__btn">
+                                        <svg class="icon-ban">
+                                            <use xlink:href="#icon-ban"></use>
+                                        </svg>
+                                    </button>
+                                    <button class="message-moder__btn">
+                                        <svg class="icon-trash">
+                                            <use xlink:href="#icon-trash"></use>
+                                        </svg>
+                                    </button>
+                                </div>
                                 <div class="message__time">
                                     18:00
                                 </div>
@@ -2511,6 +2565,23 @@
                                     <img src="cdn/default/icons/user03.jpg" alt="user">
                                 </div>
                                 <div class="message__author-name">Dior</div>
+                                <div class="message-moder">
+                                    <button class="message-moder__btn">
+                                        <svg class="icon-user-ban">
+                                            <use xlink:href="#icon-user-ban"></use>
+                                        </svg>
+                                    </button>
+                                    <button class="message-moder__btn">
+                                        <svg class="icon-ban">
+                                            <use xlink:href="#icon-ban"></use>
+                                        </svg>
+                                    </button>
+                                    <button class="message-moder__btn">
+                                        <svg class="icon-trash">
+                                            <use xlink:href="#icon-trash"></use>
+                                        </svg>
+                                    </button>
+                                </div>
                                 <div class="message__time">
                                     18:00
                                 </div>
@@ -2523,6 +2594,23 @@
                                     <img src="cdn/default/icons/user03.jpg" alt="user">
                                 </div>
                                 <div class="message__author-name">Dior</div>
+                                <div class="message-moder">
+                                    <button class="message-moder__btn">
+                                        <svg class="icon-user-ban">
+                                            <use xlink:href="#icon-user-ban"></use>
+                                        </svg>
+                                    </button>
+                                    <button class="message-moder__btn">
+                                        <svg class="icon-ban">
+                                            <use xlink:href="#icon-ban"></use>
+                                        </svg>
+                                    </button>
+                                    <button class="message-moder__btn">
+                                        <svg class="icon-trash">
+                                            <use xlink:href="#icon-trash"></use>
+                                        </svg>
+                                    </button>
+                                </div>
                                 <div class="message__time">
                                     18:00
                                 </div>
@@ -2535,6 +2623,23 @@
                                     <img src="cdn/default/icons/user03.jpg" alt="user">
                                 </div>
                                 <div class="message__author-name">Dior</div>
+                                <div class="message-moder">
+                                    <button class="message-moder__btn">
+                                        <svg class="icon-user-ban">
+                                            <use xlink:href="#icon-user-ban"></use>
+                                        </svg>
+                                    </button>
+                                    <button class="message-moder__btn">
+                                        <svg class="icon-ban">
+                                            <use xlink:href="#icon-ban"></use>
+                                        </svg>
+                                    </button>
+                                    <button class="message-moder__btn">
+                                        <svg class="icon-trash">
+                                            <use xlink:href="#icon-trash"></use>
+                                        </svg>
+                                    </button>
+                                </div>
                                 <div class="message__time">
                                     18:00
                                 </div>
@@ -2547,6 +2652,23 @@
                                     <img src="cdn/default/icons/user03.jpg" alt="user">
                                 </div>
                                 <div class="message__author-name">Dior</div>
+                                <div class="message-moder">
+                                    <button class="message-moder__btn">
+                                        <svg class="icon-user-ban">
+                                            <use xlink:href="#icon-user-ban"></use>
+                                        </svg>
+                                    </button>
+                                    <button class="message-moder__btn">
+                                        <svg class="icon-ban">
+                                            <use xlink:href="#icon-ban"></use>
+                                        </svg>
+                                    </button>
+                                    <button class="message-moder__btn">
+                                        <svg class="icon-trash">
+                                            <use xlink:href="#icon-trash"></use>
+                                        </svg>
+                                    </button>
+                                </div>
                                 <div class="message__time">
                                     18:00
                                 </div>
@@ -2559,6 +2681,23 @@
                                     <img src="cdn/default/icons/user03.jpg" alt="user">
                                 </div>
                                 <div class="message__author-name">Dior</div>
+                                <div class="message-moder">
+                                    <button class="message-moder__btn">
+                                        <svg class="icon-user-ban">
+                                            <use xlink:href="#icon-user-ban"></use>
+                                        </svg>
+                                    </button>
+                                    <button class="message-moder__btn">
+                                        <svg class="icon-ban">
+                                            <use xlink:href="#icon-ban"></use>
+                                        </svg>
+                                    </button>
+                                    <button class="message-moder__btn">
+                                        <svg class="icon-trash">
+                                            <use xlink:href="#icon-trash"></use>
+                                        </svg>
+                                    </button>
+                                </div>
                                 <div class="message__time">
                                     18:00
                                 </div>
