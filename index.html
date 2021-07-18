@@ -19,14 +19,14 @@
         <form class="moder-popup">
             <div class="moder-popup__title">Бан Чата</div>
             <input type="number" class="moder-popup__input" placeholder="Время бана чата в минутах">
-            <button class="moder-popup__btn moder-popup__btn-green">Размутить</button>
             <div class="moder-popup-btns">
-                <button class="moder-popup__btn" style="grid-area: min1">5 минут</button>
-                <button class="moder-popup__btn" style="grid-area: min15">15 минут</button>
-                <button class="moder-popup__btn" style="grid-area: hour">Час</button>
-                <button class="moder-popup__btn" style="grid-area: day">Сутки</button>
-                <button class="moder-popup__btn" style="grid-area: week">Неделя</button>
-                <button class="moder-popup__btn" style="grid-area: perma">Навсегда</button>
+                <button data-button-active="" class="moder-popup__btn moder-popup__btn-green" style="grid-area: unmute">Размутить</button>
+                <button data-button-active="" class="moder-popup__btn" style="grid-area: min1">5 минут</button>
+                <button data-button-active="" class="moder-popup__btn" style="grid-area: min15">15 минут</button>
+                <button data-button-active="" class="moder-popup__btn" style="grid-area: hour">Час</button>
+                <button data-button-active="active" class="moder-popup__btn" style="grid-area: day">Сутки</button>
+                <button data-button-active="" class="moder-popup__btn" style="grid-area: week">Неделя</button>
+                <button data-button-active="" class="moder-popup__btn" style="grid-area: perma">Навсегда</button>
             </div>
             <input type="text" class="moder-popup__input" placeholder="Укажите причину">
             <div class="moder-popup-checkbox">

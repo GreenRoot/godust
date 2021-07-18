@@ -197,7 +197,7 @@
     cursor: pointer
   &-btns
     display: grid
-    grid-template-areas: 'min1 day' 'min15 week' 'hour perma'
+    grid-template-areas: 'unmute unmute' 'min1 day' 'min15 week' 'hour perma'
     grid-gap: 1rem
   &__btn
     border: none
@@ -209,11 +209,15 @@
     background-color: #324972
     transition: .1s
     cursor: pointer
+    &[data-button-active="active"]
+      border: .1rem solid white
     &:hover
       background-color: darken(#324972, 5%)
     &:active
       background-color: darken(#324972, 5%)
     &-green
+      width: auto
+      margin: 0 4rem
       background-color: #50a869
       &:hover
         background-color: darken(#50a869, 5%)
