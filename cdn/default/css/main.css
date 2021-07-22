@@ -2854,6 +2854,98 @@ body[page_open]:not([page_open=classic__type_main]) .control #multipliers_for_cl
   box-shadow: 0 0 1.5rem 0 rgba(34, 60, 80, 0.2);
 }
 
+.classic-winner {
+  position: fixed;
+  display: grid;
+  place-content: center;
+  place-items: center;
+  grid-gap: 1rem 0;
+  top: calc(50% - 12rem);
+  left: calc(50% - 12rem);
+  width: 24rem;
+  height: 24rem;
+  border-radius: 3rem;
+  border: double 0.2rem transparent;
+  background-image: linear-gradient(#2f2f5c, #2f2f5c), linear-gradient(#202046, #50a869);
+  background-origin: border-box;
+  background-clip: content-box, border-box;
+  z-index: 3;
+}
+.classic-winner__img {
+  width: 11rem;
+  height: 11rem;
+  border-radius: 50%;
+  border: double 0.3rem transparent;
+  background-color: #202046;
+  background-image: linear-gradient(#2f2f5c, #2f2f5c), linear-gradient(to left, #202046, #50a869);
+  background-origin: border-box;
+  background-clip: content-box, border-box;
+  box-shadow: 0 0 2rem 0.1rem #27a15b;
+  overflow: hidden;
+  object-fit: cover;
+}
+.classic-winner__img img {
+  width: 100%;
+}
+.classic-winner__label {
+  font-size: 1.45rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  color: #27a15b;
+}
+.classic-winner__name {
+  font-size: 1.25rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  color: white;
+  max-width: 80%;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.classic-winner-info {
+  display: grid;
+  grid-auto-flow: column;
+  grid-gap: 0 0.2rem;
+  border-radius: 2rem;
+  overflow: hidden;
+  user-select: none;
+  cursor: unset;
+}
+.classic-winner-info__item {
+  display: grid;
+  place-items: center;
+  min-width: 6.7rem;
+  background-color: #202046;
+  padding: 1rem;
+  transition: background-color 0.2s;
+}
+.classic-winner-info__item:hover {
+  background-color: #181835;
+}
+.classic-winner-info__item:active {
+  background-color: #101023;
+}
+.classic-winner-info__label {
+  font-size: 0.958rem;
+  text-transform: uppercase;
+  color: white;
+  max-width: 95%;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+.classic-winner-info__label-green {
+  font-size: 0.958rem;
+  text-transform: uppercase;
+  color: #50a869;
+  max-width: 95%;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
 .classic-round-shadow {
   position: absolute;
   width: 100%;
@@ -3131,8 +3223,8 @@ body[page_open]:not([page_open=classic__type_main]) .control #multipliers_for_cl
 }
 
 .classic-bets {
-  display: grid;
-  grid-gap: 1.5rem 0;
+  display: flex;
+  flex-direction: column;
   margin-right: 0.7rem;
 }
 @media (max-width: 1250px) {
@@ -3151,6 +3243,7 @@ body[page_open]:not([page_open=classic__type_main]) .control #multipliers_for_cl
   grid-gap: 0 2rem;
   width: 100%;
   height: 8.4rem;
+  margin-bottom: 1.5rem;
   margin-left: 0.3rem;
   padding: 0 5rem 0 2rem;
   background-color: #27274d;
