@@ -6,11 +6,40 @@
     <meta name="theme-color" content="#2e2f5b">
     <title>scDUST</title>
     <!--    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">-->
+    <link rel="stylesheet" href="cdn/default/css/preloader.css">
     <link rel="stylesheet" href="cdn/default/css/simplebar.css">
     <link rel="stylesheet" href="cdn/default/css/main.css?v19">
 </head>
 
 <body style="background-color: #252a50">
+<div class="preloader" id="preloader">
+    <div class="boxes">
+        <div class="box">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <div class="box">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <div class="box">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <div class="box">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+</div>
 <!--    Костыль для отображения cvg иконок из спрайта. Иначе иконки попадают в shadow-root. Не знаю почему так. Раньше такого небыло-->
 <iframe src="cdn/default/icons/sprite.svg" onload="this.before(this.contentDocument.children[0]);this.remove();"></iframe>
 <!--    -->
@@ -2806,6 +2835,16 @@
 </div>
 <script src="cdn/default/js/simplebar.js"></script>
 <script type="module" src="cdn/default/js/dev.js"></script>
+<script>
+    preloaderGhost = () => {
+        document.getElementById('preloader').classList.add('ghost');
+    }
+    preloaderNone = () => {
+        document.getElementById('preloader').classList.add('none');
+    }
+    setTimeout(preloaderGhost, 1000)
+    setTimeout(preloaderNone, 1500)
+</script>
 </body>
 </html>
 
