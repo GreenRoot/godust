@@ -32,7 +32,10 @@
   width: 100%
   height: 8.5rem
   @media (max-width: 992px)
-    display: none
+    position: absolute
+    top: 0
+    width: calc(100% - 2rem)
+    margin-top: 5rem
   &:before
     position: absolute
     content: ''
@@ -49,6 +52,86 @@
     height: .6rem
     background: linear-gradient(90deg, var(--bg-b) 0%, #2e2f5b 25%, #3b3b5a 50%, #2e2f5b 75%, var(--bg-b) 100%)
     box-shadow: 0 0 1.5rem 0 rgba(34, 60, 80, 0.2)
+
+.classic-winner
+  position: fixed
+  display: grid
+  place-content: center
+  place-items: center
+  grid-gap: 1rem 0
+  top: calc(50% - 12rem)
+  left: calc(50% - 12rem)
+  width: 24rem
+  height: 24rem
+  border-radius: 3rem
+  border: double .2rem transparent
+  background-image: linear-gradient(#2f2f5c, #2f2f5c), linear-gradient(#202046, #50a869)
+  background-origin: border-box
+  background-clip: content-box, border-box
+  z-index: 3
+  &__img
+    width: 11rem
+    height: 11rem
+    border-radius: 50%
+    border: double .3rem transparent
+    background-color: #202046
+    background-image: linear-gradient(#2f2f5c, #2f2f5c), linear-gradient(to left, #202046, #50a869)
+    background-origin: border-box
+    background-clip: content-box, border-box
+    box-shadow: 0 0 2rem .1rem #27a15b
+    overflow: hidden
+    object-fit: cover
+    & img
+      width: 100%
+  &__label
+    font-size: 1.45rem
+    font-weight: 500
+    text-transform: uppercase
+    color: #27a15b
+  &__name
+    font-size: 1.25rem
+    font-weight: 500
+    text-transform: uppercase
+    color: white
+    max-width: 80%
+    white-space: nowrap
+    text-overflow: ellipsis
+    overflow: hidden
+.classic-winner-info
+  display: grid
+  grid-auto-flow: column
+  grid-gap: 0 .2rem
+  border-radius: 2rem
+  overflow: hidden
+  user-select: none
+  cursor: unset
+  &__item
+    display: grid
+    place-items: center
+    min-width: 6.7rem
+    background-color: #202046
+    padding: 1rem
+    transition: background-color .2s
+    &:hover
+      background-color: darken(#202046, 5%)
+    &:active
+      background-color: darken(#202046, 10%)
+  &__label
+    font-size: .958rem
+    text-transform: uppercase
+    color: white
+    max-width: 95%
+    white-space: nowrap
+    text-overflow: ellipsis
+    overflow: hidden
+  &__label-green
+    font-size: .958rem
+    text-transform: uppercase
+    color: #50a869
+    max-width: 95%
+    white-space: nowrap
+    text-overflow: ellipsis
+    overflow: hidden
 
 .classic-round-shadow
   position: absolute
@@ -221,6 +304,11 @@
   background-color: #31325a
   border-radius: .5rem
   cursor: pointer
+  @media (max-width: 992px)
+    width: 3rem
+    height: 3rem
+    z-index: 1
+    right: 1rem
 
 .classic-past-games
   display: grid
@@ -276,11 +364,9 @@
     border-radius: 1rem
 
 .classic-bets
-  display: grid
-  grid-gap: 1.5rem 0
+  display: flex
+  flex-direction: column
   margin-right: .7rem
-  @media (max-width: 1250px)
-    grid-gap: 1rem 0
 
 .classic-bet
   position: relative
@@ -293,6 +379,7 @@
   width: 100%
   height: 8.4rem
   margin-left: .3rem
+  margin-bottom: 1rem
   padding: 0 5rem 0 2rem
   background-color: #27274d
   border: .1rem solid #3f4370

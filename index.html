@@ -6,27 +6,56 @@
     <meta name="theme-color" content="#2e2f5b">
     <title>scDUST</title>
     <!--    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">-->
-    <link rel="stylesheet" href="cdn/default/css/simplebar.css">
-    <link rel="stylesheet" href="cdn/default/css/main.css?v19">
+    <link rel="stylesheet" href="/cdn/default/css/preloader.css">
+    <link rel="stylesheet" href="/cdn/default/css/simplebar.css">
+    <link rel="stylesheet" href="/cdn/default/css/main.css?v20">
 </head>
 
-<body style="background-color: #252a50">
+<body page_open="classic__type_main">
+<div class="preloader" id="preloader">
+    <div class="boxes">
+        <div class="box">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <div class="box">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <div class="box">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <div class="box">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+</div>
 <!--    Костыль для отображения cvg иконок из спрайта. Иначе иконки попадают в shadow-root. Не знаю почему так. Раньше такого небыло-->
 <iframe src="cdn/default/icons/sprite.svg?v=2" onload="this.before(this.contentDocument.children[0]);this.remove();"></iframe>
 <!--    -->
 <div id="body" class="body">
-    <div class="moder-chat">
+    <div class="moder-chat none">
         <form class="moder-popup">
             <div class="moder-popup__title">Бан Чата</div>
             <input type="number" class="moder-popup__input" placeholder="Время бана чата в минутах">
             <div class="moder-popup-btns">
-                <button data-button-active="" class="moder-popup__btn moder-popup__btn-green" style="grid-area: unmute">Размутить</button>
-                <button data-button-active="" class="moder-popup__btn" style="grid-area: min1">5 минут</button>
-                <button data-button-active="" class="moder-popup__btn" style="grid-area: min15">15 минут</button>
-                <button data-button-active="" class="moder-popup__btn" style="grid-area: hour">Час</button>
-                <button data-button-active="active" class="moder-popup__btn" style="grid-area: day">Сутки</button>
-                <button data-button-active="" class="moder-popup__btn" style="grid-area: week">Неделя</button>
-                <button data-button-active="" class="moder-popup__btn" style="grid-area: perma">Навсегда</button>
+                <button class="moder-popup__btn moder-popup__btn-green" style="grid-area: unmute">Размутить</button>
+                <button class="moder-popup__btn" style="grid-area: min1">5 минут</button>
+                <button class="moder-popup__btn" style="grid-area: min15">15 минут</button>
+                <button class="moder-popup__btn" style="grid-area: hour">Час</button>
+                <button class="moder-popup__btn" style="grid-area: day">Сутки</button>
+                <button class="moder-popup__btn" style="grid-area: week">Неделя</button>
+                <button class="moder-popup__btn" style="grid-area: perma">Навсегда</button>
             </div>
             <input type="text" class="moder-popup__input" placeholder="Укажите причину">
             <div class="moder-popup-checkbox">
@@ -115,7 +144,7 @@
                 </a>
             </div>
             <div class="control">
-                <div id="control_menu_of_bet" class="control-panel" data-menu_active="classic">
+                <div class="control_menu_of_bet control-panel" data-menu_active="classic">
                     <div class="multipliers" data-menu_name="classic">
                         <div class="multipliers__text">Мин. предметов в ставке - 3</div>
                         <input type="text" class="multipliers__input multipliers__input-classic" placeholder="0">
@@ -262,7 +291,7 @@
         </article>
     </nav>
     <main id="main">
-        <div id="personal-account" class="main-scroll-wrapper" data-simplebar> <!-- data-simplebar для работы кастомного скролла -->
+        <div id="personal-account" class="main-scroll-wrapper hide" data-simplebar> <!-- data-simplebar для работы кастомного скролла -->
             <article class="personal-account">
                 <div class="page-title">
                     <div class="page-title__prepend">
@@ -661,58 +690,125 @@
                 <div id="supFooter" class="support__footer">Предоставьте максимальное количество информации по интересующему Вас вопросу и наши специалисты помогут вам в кратчайшие сроки.</div>
             </div>
         </div>
-        <div id="mobilePanel" class="mobile-panel hide">
+        <div id="mobilePanel" class="mobile-panel">
             <div class="mobile-header"></div>
-            <div class="mobile-past">
-                <div class="mobile-past-shadow"></div>
-                <div class="mobile-past-games">
-                    <div class="mobile-past-games__game">2.25Х</div>
-                    <div class="mobile-past-games__game mobile-past-games__game-red">1.00Х</div>
-                    <div class="mobile-past-games__game mobile-past-games__game-green">4.65Х</div>
-                    <div class="mobile-past-games__game mobile-past-games__game-gold">10.65Х</div>
-                    <div class="mobile-past-games__game mobile-past-games__game-purple">100.18Х</div>
-                    <div class="mobile-past-games__game mobile-past-games__game-red">1.00Х</div>
-                    <div class="mobile-past-games__game mobile-past-games__game-gold">11.31Х</div>
-                    <div class="mobile-past-games__game mobile-past-games__game-gold">15.40Х</div>
-                    <div class="mobile-past-games__game mobile-past-games__game-green">3.63Х</div>
-                    <div class="mobile-past-games__game mobile-past-games__game-red">1.05Х</div>
-                    <div class="mobile-past-games__game">2.25Х</div>
-                    <div class="mobile-past-games__game mobile-past-games__game-red">1.00Х</div>
-                    <div class="mobile-past-games__game mobile-past-games__game-green">4.65Х</div>
-                    <div class="mobile-past-games__game mobile-past-games__game-gold">10.65Х</div>
-                    <div class="mobile-past-games__game mobile-past-games__game-purple">100.18Х</div>
-                    <div class="mobile-past-games__game mobile-past-games__game-red">1.00Х</div>
-                    <div class="mobile-past-games__game mobile-past-games__game-gold">11.31Х</div>
-                    <div class="mobile-past-games__game mobile-past-games__game-gold">15.40Х</div>
-                    <div class="mobile-past-games__game mobile-past-games__game-green">3.63Х</div>
-                    <div class="mobile-past-games__game mobile-past-games__game-red">1.05Х</div>
+            <div id="games_mobile_top_content" class="control_menu_of_bet content-panel" data-menu_active="classic">
+                <div class="content_unit" data-menu_name="classic">
+                    <a class="classic-past-history">
+                        <svg class="icon-classic-history">
+                            <use xlink:href="#icon-classic-history"></use>
+                        </svg>
+                    </a>
+                    <div class="mobile-past-games">
+                        <div class="mobile-past-games__game">2.25Х</div>
+                        <div class="mobile-past-games__game mobile-past-games__game-red">1.00Х</div>
+                        <div class="mobile-past-games__game mobile-past-games__game-green">4.65Х</div>
+                        <div class="mobile-past-games__game mobile-past-games__game-gold">10.65Х</div>
+                        <div class="mobile-past-games__game mobile-past-games__game-purple">100.18Х</div>
+                        <div class="mobile-past-games__game mobile-past-games__game-red">1.00Х</div>
+                        <div class="mobile-past-games__game mobile-past-games__game-gold">11.31Х</div>
+                        <div class="mobile-past-games__game mobile-past-games__game-gold">15.40Х</div>
+                        <div class="mobile-past-games__game mobile-past-games__game-green">3.63Х</div>
+                        <div class="mobile-past-games__game mobile-past-games__game-red">1.05Х</div>
+                        <div class="mobile-past-games__game">2.25Х</div>
+                        <div class="mobile-past-games__game mobile-past-games__game-red">1.00Х</div>
+                        <div class="mobile-past-games__game mobile-past-games__game-green">4.65Х</div>
+                        <div class="mobile-past-games__game mobile-past-games__game-gold">10.65Х</div>
+                        <div class="mobile-past-games__game mobile-past-games__game-purple">100.18Х</div>
+                        <div class="mobile-past-games__game mobile-past-games__game-red">1.00Х</div>
+                        <div class="mobile-past-games__game mobile-past-games__game-gold">11.31Х</div>
+                        <div class="mobile-past-games__game mobile-past-games__game-gold">15.40Х</div>
+                        <div class="mobile-past-games__game mobile-past-games__game-green">3.63Х</div>
+                        <div class="mobile-past-games__game mobile-past-games__game-red">1.05Х</div>
+                    </div>
+                    <div class="mobile-count-wr">
+                        <div class="mobile-count">
+                            <div class="mobile-count__value">12,43$</div>
+                            <div class="mobile-count__label">Игроки</div>
+                        </div>
+                        <div class="mobile-count mobile-count-bank">
+                            <div class="mobile-count__value">118,18$</div>
+                            <div class="mobile-count__label">банк</div>
+                        </div>
+                        <div class="mobile-count">
+                            <div class="mobile-count__value">50%</div>
+                            <div class="mobile-count__label">процент</div>
+                        </div>
+                    </div>
                 </div>
+                <div class="content_unit" data-menu_name="crash">
+                    <div class="mobile-past-games mobile-past-games_crash">
+                        <div class="mobile-past-games__game">2.25Х</div>
+                        <div class="mobile-past-games__game mobile-past-games__game-red">1.00Х</div>
+                        <div class="mobile-past-games__game mobile-past-games__game-green">4.65Х</div>
+                        <div class="mobile-past-games__game mobile-past-games__game-gold">10.65Х</div>
+                        <div class="mobile-past-games__game mobile-past-games__game-purple">100.18Х</div>
+                        <div class="mobile-past-games__game mobile-past-games__game-red">1.00Х</div>
+                        <div class="mobile-past-games__game mobile-past-games__game-gold">11.31Х</div>
+                        <div class="mobile-past-games__game mobile-past-games__game-gold">15.40Х</div>
+                        <div class="mobile-past-games__game mobile-past-games__game-green">3.63Х</div>
+                        <div class="mobile-past-games__game mobile-past-games__game-red">1.05Х</div>
+                        <div class="mobile-past-games__game">2.25Х</div>
+                        <div class="mobile-past-games__game mobile-past-games__game-red">1.00Х</div>
+                        <div class="mobile-past-games__game mobile-past-games__game-green">4.65Х</div>
+                        <div class="mobile-past-games__game mobile-past-games__game-gold">10.65Х</div>
+                        <div class="mobile-past-games__game mobile-past-games__game-purple">100.18Х</div>
+                        <div class="mobile-past-games__game mobile-past-games__game-red">1.00Х</div>
+                        <div class="mobile-past-games__game mobile-past-games__game-gold">11.31Х</div>
+                        <div class="mobile-past-games__game mobile-past-games__game-gold">15.40Х</div>
+                        <div class="mobile-past-games__game mobile-past-games__game-green">3.63Х</div>
+                        <div class="mobile-past-games__game mobile-past-games__game-red">1.05Х</div>
+                    </div>
+                    <div class="mobile-count-wr">
+                        <div class="mobile-count">
+                            <div class="mobile-count__value">20</div>
+                            <div class="mobile-count__label">Игроки</div>
+                        </div>
+                        <div class="mobile-count mobile-count-bank">
+                            <div class="mobile-count__value">118,18$</div>
+                            <div class="mobile-count__label">банк</div>
+                        </div>
+                        <div class="mobile-count">
+                            <div class="mobile-count__value">50</div>
+                            <div class="mobile-count__label">Скины</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="content_unit" data-menu_name="empty">empty</div>
             </div>
-            <div class="mobile-multipliers">
-                <button class="mobile-multipliers__btn">
-                    <svg class="icon-endlessly">
-                        <use xlink:href="#icon-endlessly"></use>
-                    </svg>
-                </button>
-                <button class="mobile-multipliers__btn">x1.1</button>
-                <button class="mobile-multipliers__btn">x1.5</button>
-                <button class="mobile-multipliers__btn mobile-multipliers__btn-active">x2</button>
-                <button class="mobile-multipliers__btn">x3</button>
-                <button class="mobile-multipliers__btn mobile-multipliers__btn-put">Поставить</button> <!-- mobile-multipliers__btn-pull для красной кнопки -->
-                <input type="text" class="mobile-multipliers__input" placeholder="0">
-            </div>
-            <div class="mobile-count-wr">
-                <div class="mobile-count">
-                    <div class="mobile-count__value">12,43$</div>
-                    <div class="mobile-count__label">ставка</div>
+            <div class="control_menu_of_bet control-panel" data-menu_active="classic">
+                <div class="multipliers" data-menu_name="classic">
+                    <div class="multipliers__text">Мин. предметов в ставке - 3</div>
+                    <input type="text" class="multipliers__input multipliers__input-classic" placeholder="0">
+                    <button class="multipliers__btn-classic">Поставить</button> <!-- добавить multipliers__btn-pull для красной кнопки -->
                 </div>
-                <div class="mobile-count mobile-count-bank">
-                    <div class="mobile-count__value">118,18$</div>
-                    <div class="mobile-count__label">банк</div>
+                <div class="multipliers" data-menu_name="crash">
+                    <button class="multipliers__btn">
+                        <svg class="icon-endlessly">
+                            <use xlink:href="#icon-endlessly"></use>
+                        </svg>
+                    </button>
+                    <button class="multipliers__btn multipliers__btn-active">x1.5</button>
+                    <button class="multipliers__btn">x2.0</button>
+                    <input type="text" class="multipliers__input" placeholder="0">
+                    <button class="multipliers__btn multipliers__btn-put">
+                        <div>Поставить</div>
+                        <div>50$</div>
+                    </button> <!-- добавить multipliers__btn-pull для красной кнопки -->
                 </div>
-                <div class="mobile-count">
-                    <div class="mobile-count__value">50%</div>
-                    <div class="mobile-count__label">процент</div>
+                <div class="multipliers disable" data-menu_name="empty">
+                    <button class="multipliers__btn">
+                        <svg class="icon-endlessly">
+                            <use xlink:href="#icon-endlessly"></use>
+                        </svg>
+                    </button>
+                    <button class="multipliers__btn">x1.5</button>
+                    <button class="multipliers__btn">x2.0</button>
+                    <input type="text" class="multipliers__input" placeholder="0">
+                    <button class="multipliers__btn multipliers__btn-put">
+                        <div>Поставить</div>
+                        <div>50$</div>
+                    </button> <!-- добавить multipliers__btn-pull для красной кнопки -->
                 </div>
             </div>
             <div class="inv-choice">
@@ -824,7 +920,7 @@
                 <a href="#"  class="exit-btn">Выход</a>
             </div>
         </div>
-        <div id="crash" class="crash hide">
+        <div id="crash" class="crash">
             <div class="crash-header"></div>
             <div class="crash-game">
                 <div class="crash-stat">
@@ -1725,6 +1821,27 @@
                 </div>
                 <div class="classic-hash">Хеш раунда: 13e7bc9c8af9df98b7292ea681824b5608b7d7617489041f9a09028f7b254fe7</div>
             </div>
+            <div class="classic-winner none">
+                <div class="classic-winner__img">
+                    <img src="cdn/default/icons/user01.jpg" alt="user">
+                </div>
+                <div class="classic-winner__label">Победитель</div>
+                <div class="classic-winner__name">Юрец большой ник Вах Вах вах вах вах вах</div>
+                <div class="classic-winner-info">
+                    <div class="classic-winner-info__item">
+                        <div class="classic-winner-info__label">34%</div>
+                        <div class="classic-winner-info__label">Шанс</div>
+                    </div>
+                    <div class="classic-winner-info__item">
+                        <div class="classic-winner-info__label-green">278,88$</div>
+                        <div class="classic-winner-info__label">Банк</div>
+                    </div>
+                    <div class="classic-winner-info__item">
+                        <div class="classic-winner-info__label">42424242</div>
+                        <div class="classic-winner-info__label">Билет</div>
+                    </div>
+                </div>
+            </div>
         </div>
         <div id="deposit" class="deposit-scroll-wrapper hide" data-simplebar>
             <div class="mob-title">
@@ -2470,7 +2587,7 @@
             </ul>
         </div>
     </main>
-    <aside id="aside">
+    <aside id="aside" class="chat-close-aside">
         <div class="aside">
             <div class="aside-toggle">
                 <div id="chatBtn" class="aside-toggle__button aside-toggle__button-active">
@@ -2785,6 +2902,16 @@
 </div>
 <script src="cdn/default/js/simplebar.js"></script>
 <script type="module" src="cdn/default/js/dev.js"></script>
+<script>
+    preloaderGhost = () => {
+        document.getElementById('preloader').classList.add('ghost');
+    }
+    preloaderNone = () => {
+        document.getElementById('preloader').classList.add('none');
+    }
+    setTimeout(preloaderGhost, 1000)
+    setTimeout(preloaderNone, 1500)
+</script>
 </body>
 </html>
 
