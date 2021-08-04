@@ -2635,11 +2635,6 @@ body[page_open=classic__type_main] .control_menu_of_bet[data-menu_active] {
   flex-direction: column;
   margin-right: 0.7rem;
 }
-@media (max-width: 1250px) {
-  .crash-bets {
-    grid-gap: 1rem 0;
-  }
-}
 
 .crash-bet {
   display: grid;
@@ -2651,6 +2646,7 @@ body[page_open=classic__type_main] .control_menu_of_bet[data-menu_active] {
   width: 100%;
   height: 8.4rem;
   margin-left: 0.3rem;
+  margin-bottom: 1rem;
   padding: 0 2rem;
   background-color: #27274d;
   border: 0.1rem solid #3f4370;
@@ -3249,11 +3245,6 @@ body[page_open=classic__type_main] .control_menu_of_bet[data-menu_active] {
   flex-direction: column;
   margin-right: 0.7rem;
 }
-@media (max-width: 1250px) {
-  .classic-bets {
-    grid-gap: 1rem 0;
-  }
-}
 
 .classic-bet {
   position: relative;
@@ -3266,6 +3257,7 @@ body[page_open=classic__type_main] .control_menu_of_bet[data-menu_active] {
   width: 100%;
   height: 8.4rem;
   margin-left: 0.3rem;
+  margin-bottom: 1rem;
   padding: 0 5rem 0 2rem;
   background-color: #27274d;
   border: 0.1rem solid #3f4370;
