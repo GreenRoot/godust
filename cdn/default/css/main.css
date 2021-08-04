@@ -708,14 +708,6 @@ header {
   color: white;
 }
 
-body[page_open]:not([page_open=crash]) .control #multipliers_for_crash {
-  display: none;
-}
-
-body[page_open]:not([page_open=classic__type_main]) .control #multipliers_for_classic {
-  display: none;
-}
-
 #multipliers_for_crash[data-player_bet_status]:not([data-player_bet_status=in_game]) #crash__bets__back {
   display: none;
 }
@@ -1466,31 +1458,31 @@ body[page_open]:not([page_open=classic__type_main]) .control #multipliers_for_cl
   height: 4rem;
 }
 
-#control_menu_of_bet[data-menu_active] {
+body #control_menu_of_bet[data-menu_active] {
   --menu__classic: none;
   --menu__crash: none;
   --menu__empty: grid;
 }
 
-#control_menu_of_bet[data-menu_active=classic] {
-  --menu__classic: grid;
-  --menu__empty: none;
-}
-
-#control_menu_of_bet[data-menu_active=crash] {
+body[page_open="crash"] #control_menu_of_bet[data-menu_active] {
   --menu__crash: grid;
   --menu__empty: none;
 }
 
-#control_menu_of_bet [data-menu_name=classic] {
+body[page_open="classic__type_main"] #control_menu_of_bet[data-menu_active] {
+  --menu__classic: grid;
+  --menu__empty: none;
+}
+
+#control_menu_of_bet [data-menu_name="classic"] {
   display: var(--menu__classic);
 }
 
-#control_menu_of_bet [data-menu_name=crash] {
+#control_menu_of_bet [data-menu_name="crash"] {
   display: var(--menu__crash);
 }
 
-#control_menu_of_bet [data-menu_name=empty] {
+#control_menu_of_bet [data-menu_name="empty"] {
   display: var(--menu__empty);
 }
 
@@ -2879,27 +2871,31 @@ body[page_open]:not([page_open=classic__type_main]) .control #multipliers_for_cl
   width: 100%;
   height: 8.5rem;
   z-index: 2;
+  pointer-events: none;
 }
 
 .classic-roulette-users {
-  display: grid;
-  grid-auto-flow: column;
-  place-items: center;
-  place-content: start;
-  grid-gap: 0 0.4rem;
-  width: 100%;
   height: 100%;
-  overflow: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin: 0 0 0 0;
+  padding: 0;
+  display: flex;
+  width: auto;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: row;
+  flex-wrap: nowrap;
 }
 
 .classic-roulette-user {
-  width: 6.5rem;
-  height: 6.5rem;
-  padding: 0.4rem;
+  width: 65px;
+  height: 65px;
+  margin: 0 0.5px;
   border-radius: 1rem;
   background-color: #27274d;
   overflow: hidden;
-  animation: test1 100s linear infinite;
 }
 .classic-roulette-user img {
   width: 100%;
@@ -3253,7 +3249,8 @@ body[page_open]:not([page_open=classic__type_main]) .control #multipliers_for_cl
   right: 0;
   background-color: #3f4370;
   height: 100%;
-  width: 3rem;
+  min-width: 4rem;
+  padding: 0 5px;
   font-size: 1.8rem;
   color: white;
   border-radius: 0 1rem 1rem 0;

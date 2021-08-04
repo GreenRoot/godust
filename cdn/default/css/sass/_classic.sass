@@ -75,25 +75,31 @@
     width: 100%
     height: 8.5rem
     z-index: 2
+    pointer-events: none
 
 .classic-roulette-users
-  display: grid
-  grid-auto-flow: column
-  place-items: center
-  place-content: start
-  grid-gap: 0
-  width: 100%
   height: 100%
-  overflow: hidden
+  position: absolute
+  top: 0
+  left: 0
+  margin: 0 0 0 0
+  padding: 0
+  display: flex
+  width: auto
+  align-items: center
+  justify-content: flex-start
+  flex-direction: row
+  flex-wrap: nowrap
+  //overflow: hidden
 
 .classic-roulette-user
-  width: 6.5rem
-  height: 6.5rem
+  width: 65px
+  height: 65px
   margin: 0 0.5px
   border-radius: 1rem
   background-color: #27274d
   overflow: hidden
-  animation: test1 100s linear infinite
+  //animation: test1 100s linear infinite
   & img
     width: 100%
     height: 100%
