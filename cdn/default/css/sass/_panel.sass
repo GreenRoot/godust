@@ -149,26 +149,26 @@
       height: 4rem
 
 // Data атрибуты для control-panel
-#control_menu_of_bet[data-menu_active]
+body .control_menu_of_bet[data-menu_active]
   --menu__classic: none
   --menu__crash: none
   --menu__empty: grid
 
-#control_menu_of_bet[data-menu_active="classic"]
-  --menu__classic: grid
-  --menu__empty: none
-
-#control_menu_of_bet[data-menu_active="crash"]
+body[page_open="crash"] .control_menu_of_bet[data-menu_active]
   --menu__crash: grid
   --menu__empty: none
 
-#control_menu_of_bet [data-menu_name="classic"]
+body[page_open="classic__type_main"] .control_menu_of_bet[data-menu_active]
+  --menu__classic: grid
+  --menu__empty: none
+
+.control_menu_of_bet [data-menu_name="classic"]
   display: var(--menu__classic)
 
-#control_menu_of_bet [data-menu_name="crash"]
+.control_menu_of_bet [data-menu_name="crash"]
   display: var(--menu__crash)
 
-#control_menu_of_bet [data-menu_name="empty"]
+.control_menu_of_bet [data-menu_name="empty"]
   display: var(--menu__empty)
 
 .inv-choice

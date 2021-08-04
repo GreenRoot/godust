@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="cdn/default/css/main.css?v19">
 </head>
 
-<body style="background-color: #252a50">
+<body page_open="crash">
 <div class="preloader" id="preloader">
     <div class="boxes">
         <div class="box">
@@ -144,7 +144,7 @@
                 </a>
             </div>
             <div class="control">
-                <div id="control_menu_of_bet" class="control-panel" data-menu_active="classic">
+                <div class="control_menu_of_bet control-panel" data-menu_active="classic">
                     <div class="multipliers" data-menu_name="classic">
                         <div class="multipliers__text">Мин. предметов в ставке - 3</div>
                         <input type="text" class="multipliers__input multipliers__input-classic" placeholder="0">
@@ -291,7 +291,7 @@
         </article>
     </nav>
     <main id="main">
-        <div id="personal-account" class="main-scroll-wrapper" data-simplebar> <!-- data-simplebar для работы кастомного скролла -->
+        <div id="personal-account" class="main-scroll-wrapper hide" data-simplebar> <!-- data-simplebar для работы кастомного скролла -->
             <article class="personal-account">
                 <div class="page-title">
                     <div class="page-title__prepend">
@@ -690,7 +690,7 @@
                 <div id="supFooter" class="support__footer">Предоставьте максимальное количество информации по интересующему Вас вопросу и наши специалисты помогут вам в кратчайшие сроки.</div>
             </div>
         </div>
-        <div id="mobilePanel" class="mobile-panel hide">
+        <div id="mobilePanel" class="mobile-panel">
             <div class="mobile-header"></div>
             <div class="mobile-past">
                 <div class="mobile-past-shadow"></div>
@@ -717,18 +717,40 @@
                     <div class="mobile-past-games__game mobile-past-games__game-red">1.05Х</div>
                 </div>
             </div>
-            <div class="mobile-multipliers">
-                <button class="mobile-multipliers__btn">
-                    <svg class="icon-endlessly">
-                        <use xlink:href="#icon-endlessly"></use>
-                    </svg>
-                </button>
-                <button class="mobile-multipliers__btn">x1.1</button>
-                <button class="mobile-multipliers__btn">x1.5</button>
-                <button class="mobile-multipliers__btn mobile-multipliers__btn-active">x2</button>
-                <button class="mobile-multipliers__btn">x3</button>
-                <button class="mobile-multipliers__btn mobile-multipliers__btn-put">Поставить</button> <!-- mobile-multipliers__btn-pull для красной кнопки -->
-                <input type="text" class="mobile-multipliers__input" placeholder="0">
+            <div class="control_menu_of_bet control-panel" data-menu_active="classic">
+                <div class="multipliers" data-menu_name="classic">
+                    <div class="multipliers__text">Мин. предметов в ставке - 3</div>
+                    <input type="text" class="multipliers__input multipliers__input-classic" placeholder="0">
+                    <button class="multipliers__btn-classic">Поставить</button> <!-- добавить multipliers__btn-pull для красной кнопки -->
+                </div>
+                <div class="multipliers" data-menu_name="crash">
+                    <button class="multipliers__btn">
+                        <svg class="icon-endlessly">
+                            <use xlink:href="#icon-endlessly"></use>
+                        </svg>
+                    </button>
+                    <button class="multipliers__btn multipliers__btn-active">x1.5</button>
+                    <button class="multipliers__btn">x2.0</button>
+                    <input type="text" class="multipliers__input" placeholder="0">
+                    <button class="multipliers__btn multipliers__btn-put">
+                        <div>Поставить</div>
+                        <div>50$</div>
+                    </button> <!-- добавить multipliers__btn-pull для красной кнопки -->
+                </div>
+                <div class="multipliers disable" data-menu_name="empty">
+                    <button class="multipliers__btn">
+                        <svg class="icon-endlessly">
+                            <use xlink:href="#icon-endlessly"></use>
+                        </svg>
+                    </button>
+                    <button class="multipliers__btn">x1.5</button>
+                    <button class="multipliers__btn">x2.0</button>
+                    <input type="text" class="multipliers__input" placeholder="0">
+                    <button class="multipliers__btn multipliers__btn-put">
+                        <div>Поставить</div>
+                        <div>50$</div>
+                    </button> <!-- добавить multipliers__btn-pull для красной кнопки -->
+                </div>
             </div>
             <div class="mobile-count-wr">
                 <div class="mobile-count">
@@ -853,7 +875,7 @@
                 <a href="#"  class="exit-btn">Выход</a>
             </div>
         </div>
-        <div id="crash" class="crash hide">
+        <div id="crash" class="crash">
             <div class="crash-header"></div>
             <div class="crash-game">
                 <div class="crash-stat">
@@ -2520,7 +2542,7 @@
             </ul>
         </div>
     </main>
-    <aside id="aside">
+    <aside id="aside" class="chat-close-aside">
         <div class="aside">
             <div class="aside-toggle">
                 <div id="chatBtn" class="aside-toggle__button aside-toggle__button-active">
