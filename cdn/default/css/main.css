@@ -77,15 +77,12 @@ body {
 @media (max-width: 992px) {
   .body {
     grid-template-columns: 100%;
-    grid-template-rows: var(--header-height) min-content 6rem;
+    grid-template-rows: var(--header-height) calc(100vh - (var(--header-height) + var(--footer-height) + var(--main-gap))) 6rem;
     gap: var(--main-gap) 0;
     grid-template-areas: "header" "main" "footer";
   }
-}
-
-@media (max-width: 992px) {
-  .body_games_height {
-    grid-template-rows: var(--header-height) calc(100vh - (var(--header-height) + var(--footer-height) + var(--main-gap))) 6rem;
+  .body main#main {
+    overflow-y: scroll;
   }
 }
 
@@ -709,19 +706,20 @@ header {
   color: white;
 }
 
-body[page_open]:not([page_open=crash]) .control #multipliers_for_crash {
+.multipliers_for_crash[data-player_bet_status]:not([data-player_bet_status=in_game]) .crash__bets__back {
+  display: none;
+}
+.multipliers_for_crash[data-player_bet_status][data-player_bet_status=in_game] .crash__bets__send {
   display: none;
 }
 
-body[page_open]:not([page_open=classic__type_main]) .control #multipliers_for_classic {
-  display: none;
+input[type=number].arrows_disabled {
+  -moz-appearance: textfield;
 }
 
-#multipliers_for_crash[data-player_bet_status]:not([data-player_bet_status=in_game]) #crash__bets__back {
-  display: none;
-}
-#multipliers_for_crash[data-player_bet_status][data-player_bet_status=in_game] #crash__bets__send {
-  display: none;
+input[type=number].arrows_disabled::-webkit-outer-spin-button, input[type=number].arrows_disabled::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
 
 .personal-account {
@@ -1687,6 +1685,13 @@ body[page_open=classic__type_main] .control_menu_of_bet[data-menu_active] {
   padding: 0;
   grid-gap: 0.5rem;
 }
+.items-mobile > .item {
+  width: auto;
+  height: auto;
+  min-height: 11rem;
+  padding-top: 1rem;
+  margin: 0.3rem;
+}
 
 .item {
   user-select: none;
@@ -1695,7 +1700,7 @@ body[page_open=classic__type_main] .control_menu_of_bet[data-menu_active] {
   place-items: center;
   width: 11.2rem;
   height: 11.5rem;
-  background: center no-repeat url("../icons/itemsBG.png") #27274d;
+  background: center no-repeat url("/cdn/default/icons/itemsBG.png") #27274d;
   border-radius: 1rem;
   cursor: pointer;
   transition: transform, box-shadow 0.2s;
@@ -1703,13 +1708,6 @@ body[page_open=classic__type_main] .control_menu_of_bet[data-menu_active] {
 .item-selected {
   box-shadow: 0 0 1rem rgba(0, 0, 0, 0.25), 0 0 1rem #50a869 inset;
   transform: scale(1.04);
-}
-.item-mobile {
-  width: auto;
-  height: auto;
-  min-height: 11rem;
-  padding-top: 1rem;
-  margin: 0.3rem;
 }
 .item__img {
   width: calc(100% - 2rem);
@@ -2328,22 +2326,17 @@ body[page_open=classic__type_main] .control_menu_of_bet[data-menu_active] {
   height: 25rem;
 }
 
-.chat-close-aside {
-  transform: translateX(46rem);
-}
-@media (max-width: 500px) {
-  .chat-close-aside {
-    transform: translateX(50rem);
-  }
-}
-
-.chat-close-main {
+body[chat_is_open=false] main#main {
   margin-right: 2rem;
 }
 @media (max-width: 992px) {
-  .chat-close-main {
+  body[chat_is_open=false] main#main {
     margin-right: 0;
   }
+}
+
+body[chat_is_open=false] aside#aside {
+  transform: translateX(46rem);
 }
 
 .crash {
@@ -2362,13 +2355,31 @@ body[page_open=classic__type_main] .control_menu_of_bet[data-menu_active] {
 
 .crash-header {
   width: 100%;
-  height: 20rem;
   border-radius: 1rem;
   background-color: var(--bg-b);
+  height: 250px;
+  position: relative;
+  overflow: hidden;
 }
 @media (max-width: 992px) {
   .crash-header {
+    position: absolute;
+    top: 0;
+    height: 280px;
+  }
+  .crash-header #crash__round__scene__main {
     display: none;
+  }
+  .crash-header #crash__user_bet__tabloid_of_item_upgrade {
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    margin-top: 40px;
+  }
+  .crash-header #crash__user_bet__tabloid_of_item_upgrade > * {
+    top: unset;
+    left: unset;
+    right: unset;
   }
 }
 
@@ -2983,27 +2994,31 @@ body[page_open=classic__type_main] .control_menu_of_bet[data-menu_active] {
   width: 100%;
   height: 8.5rem;
   z-index: 2;
+  pointer-events: none;
 }
 
 .classic-roulette-users {
-  display: grid;
-  grid-auto-flow: column;
-  place-items: center;
-  place-content: start;
-  grid-gap: 0 0.4rem;
-  width: 100%;
   height: 100%;
-  overflow: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin: 0 0 0 0;
+  padding: 0;
+  display: flex;
+  width: auto;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: row;
+  flex-wrap: nowrap;
 }
 
 .classic-roulette-user {
-  width: 6.5rem;
-  height: 6.5rem;
-  padding: 0.4rem;
+  width: 65px;
+  height: 65px;
+  margin: 0 0.5px;
   border-radius: 1rem;
   background-color: #27274d;
   overflow: hidden;
-  animation: test1 100s linear infinite;
 }
 .classic-roulette-user img {
   width: 100%;
@@ -3021,8 +3036,7 @@ body[page_open=classic__type_main] .control_menu_of_bet[data-menu_active] {
   }
 }
 .classic-timer {
-  display: grid;
-  place-items: center;
+  display: flex;
   width: 23.8rem;
   height: 6.7rem;
   font-size: 2.4rem;
@@ -3031,11 +3045,10 @@ body[page_open=classic__type_main] .control_menu_of_bet[data-menu_active] {
   background-color: #27274d;
   border: 0.2rem solid #363659;
   border-top-width: 0;
-}
-@media (max-width: 992px) {
-  .classic-timer {
-    display: none;
-  }
+  align-content: center;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
 }
 
 .classic-stat {
@@ -3361,7 +3374,8 @@ body[page_open=classic__type_main] .control_menu_of_bet[data-menu_active] {
   right: 0;
   background-color: #3f4370;
   height: 100%;
-  width: 3rem;
+  min-width: 4rem;
+  padding: 0 5px;
   font-size: 1.8rem;
   color: white;
   border-radius: 0 1rem 1rem 0;

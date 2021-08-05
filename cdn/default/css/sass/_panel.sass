@@ -325,6 +325,12 @@ body[page_open="classic__type_main"] .control_menu_of_bet[data-menu_active]
     grid-template-columns: repeat(auto-fill, minmax(100px, 1fr))
     padding: 0
     grid-gap: .5rem
+    & > .item
+      width: auto
+      height: auto
+      min-height: 11rem
+      padding-top: 1rem
+      margin: .3rem
 .item
   user-select: none
   display: grid
@@ -332,7 +338,7 @@ body[page_open="classic__type_main"] .control_menu_of_bet[data-menu_active]
   place-items: center
   width: 11.2rem
   height: 11.5rem
-  background: center no-repeat url("../icons/itemsBG.png") #27274d
+  background: center no-repeat url("/cdn/default/icons/itemsBG.png") #27274d
   border-radius: 1rem
   cursor: pointer
   transition: (transform, box-shadow) .2s
@@ -340,12 +346,6 @@ body[page_open="classic__type_main"] .control_menu_of_bet[data-menu_active]
     //border: 1px solid #50a869
     box-shadow: 0 0 1rem rgba(0, 0, 0, 0.25), 0 0 1rem #50a869 inset
     transform: scale(1.04)
-  &-mobile
-    width: auto
-    height: auto
-    min-height: 11rem
-    padding-top: 1rem
-    margin: .3rem
   &__img
     width: calc(100% - 2rem)
   &__price

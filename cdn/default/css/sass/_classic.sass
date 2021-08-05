@@ -196,8 +196,7 @@
     transform: translateX(-100rem)
 
 .classic-timer
-  display: grid
-  place-items: center
+  display: flex
   width: 23.8rem
   height: 6.7rem
   font-size: 2.4rem
@@ -206,8 +205,10 @@
   background-color: #27274d
   border: .2rem solid #363659
   border-top-width: 0
-  @media (max-width: 992px)
-    display: none
+  align-content: center
+  flex-wrap: nowrap
+  justify-content: center
+  align-items: center
 
 .classic-stat
   display: grid

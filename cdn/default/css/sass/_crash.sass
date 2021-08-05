@@ -9,11 +9,26 @@
     height: auto
 .crash-header
   width: 100%
-  height: 20rem
   border-radius: 1rem
   background-color: var(--bg-b)
+  height: 250px
+  position: relative
+  overflow: hidden
   @media (max-width: 992px)
-    display: none
+    position: absolute
+    top: 0
+    height: 280px
+    & #crash__round__scene__main
+      display: none
+    & #crash__user_bet__tabloid_of_item_upgrade
+      align-items: center
+      justify-content: center
+      display: flex
+      margin-top: 40px
+      & > *
+        top: unset
+        left: unset
+        right: unset
 
 .crash-game
   display: grid
