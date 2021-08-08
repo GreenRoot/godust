@@ -1791,6 +1791,9 @@ body[page_open=classic__type_main] .control_menu_of_bet[data-menu_active] {
   position: relative;
   grid-gap: 1rem 0;
 }
+.content-panel > .content_unit[data-menu_name=crash] {
+  margin-top: 100px;
+}
 
 .mobile-past {
   position: relative;
@@ -2611,7 +2614,7 @@ body[chat_is_open=false] aside#aside {
   height: calc(100vh - (var(--header-height) + var(--main-gap) + var(--footer-height) + 22rem + var(--main-gap) + 1.5rem + 7.5rem + 4rem + 2.5rem));
   overflow: hidden;
   overflow-y: scroll;
-  margin-top: 2.5rem;
+  padding-top: 2.5rem;
 }
 @media (max-width: 1250px) {
   .crash-scroll-wrapper {
