@@ -4731,7 +4731,11 @@ body[page_open=classic__type_main] .control_menu_of_bet[data-menu_active] {
   height: calc(100vh - 11rem);
   width: 100%;
   min-width: 72.5rem;
-  overflow: scroll;
+  overflow: hidden;
+  overflow-y: scroll;
+}
+.fair::-webkit-scrollbar {
+  width: 0;
 }
 @media (max-width: 1200px) {
   .fair {
