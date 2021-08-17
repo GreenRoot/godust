@@ -1,0 +1,116 @@
+.faq
+  background-color: #202046
+  border-radius: 1rem
+  padding: 2.5rem 2rem
+  height: calc(100vh - 9rem)
+  width: 100%
+  min-width: 72.5rem
+  overflow: hidden
+  overflow-y: scroll
+
+  &::-webkit-scrollbar
+    width: 0
+
+  @media (max-width: 1200px)
+    grid-gap: 2rem 0
+    border-radius: 0
+    background-color: #171b3a
+    min-width: auto
+
+  &_wrapper
+    display: grid
+    grid-gap: 2rem
+    padding: 3rem 5rem
+    @media (max-width: 600px)
+      padding: 3rem 0
+
+  &__text
+    color: white
+    font-size: 1.4rem
+    overflow-wrap: anywhere
+
+  &__line
+    width: 100%
+    height: .2rem
+    background-color: #27274d
+
+  &__text-bold
+    text-align: center
+    color: white
+    font-size: 2rem
+    font-weight: 600
+
+.faq-box-wr
+  display: grid
+  grid-gap: 1rem
+
+.faq-box
+  background-color: #171b3a
+  border-radius: 2rem
+  overflow: hidden
+  user-select: none
+
+
+.faq-question
+  position: relative
+  background-color: #171b3a
+  padding: 2rem 4rem 2rem 2rem
+  cursor: pointer
+  @media (max-width: 1200px)
+    background-color: #131731
+
+  &__text
+    color: white
+    font-size: 1.4rem
+
+  &__arrow
+    position: absolute
+    top: 2rem
+    right: 2rem
+    width: 2rem
+    height: 2rem
+
+    &:before
+      transition: .2s
+      position: absolute
+      top: 50%
+      left: 0
+      content: ''
+      width: 1.2rem
+      height: .2rem
+      border-radius: 1rem
+      background-color: #27274d
+      transform: rotate(45deg)
+
+    &:after
+      transition: .2s
+      position: absolute
+      top: 50%
+      right: 0
+      content: ''
+      width: 1.2rem
+      height: .2rem
+      border-radius: 1rem
+      background-color: #27274d
+      transform: rotate(-45deg)
+
+
+.faq-answer
+  display: none
+  padding: 2rem
+  background-color: #27274d
+
+  &__text
+    color: white
+    font-size: 1.4rem
+    transition: .3s
+
+.faq-box.active > .faq-answer
+  display: block
+
+.faq-box.active > .faq-question > .faq-question__arrow:before
+  transform: rotate(-45deg)
+
+.faq-box.active > .faq-question > .faq-question__arrow:after
+  transform: rotate(45deg)
+

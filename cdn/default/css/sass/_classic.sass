@@ -12,12 +12,22 @@
   height: 20rem
   border-radius: 1rem
   background-color: var(--bg-b)
+  overflow: hidden
+  position: relative
+  display: flex
+  justify-content: center
+  align-items: center
+  flex-direction: column
   @media (max-width: 992px)
-    display: none
+    position: absolute
+    top: 0
+    height: 181px
+    & .background_of_game
+      height: 100%
 
 .classic-game
   display: grid
-  grid-template: min-content min-content 1fr min-content / 1fr
+  grid-template: min-content 1fr min-content / 1fr
   width: 100%
   height: 100%
   background-color: var(--bg-b)
@@ -31,11 +41,6 @@
   position: relative
   width: 100%
   height: 8.5rem
-  @media (max-width: 992px)
-    position: absolute
-    top: 0
-    width: calc(100% - 2rem)
-    margin-top: 5rem
   &:before
     position: absolute
     content: ''
