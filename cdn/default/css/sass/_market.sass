@@ -16,6 +16,8 @@
     grid-template: 3.5rem 1fr 11.5rem / 1fr
     width: 100%
     left: -100%
+    position: fixed
+    top: 5rem
   &_active
     left: 0
     box-shadow: .5rem .5rem 1.5rem 0 #000
@@ -31,13 +33,6 @@
   &__items
     border-radius: .5rem
     background-color: #1b1e40
-  &__filter
-    display: grid
-    grid-template: 4.5rem / repeat(3, 1fr)
-    grid-gap: 0 .2rem
-    margin: 1rem 1rem 2rem
-    border-radius: .5rem
-    overflow: hidden
   &__items-wrapper
     width: 100%
     height: calc(100vh - 40.5rem)
@@ -67,28 +62,95 @@
 
 .filter
   display: grid
-  grid-auto-flow: column
-  grid-gap: 0 .5rem
-  place-items: center
-  place-content: center
-  background-color: #262850
-  font-size: 1.4rem
-  font-weight: 300
-  color: #63637e
-  cursor: pointer
-  &__down
-    width: 0
-    height: 0
-    border-left: 5px solid transparent
-    border-right: 5px solid transparent
-    border-top: 10px solid #63637e
-  &__up
-    width: 0
-    height: 0
-    border-left: 5px solid transparent
-    border-right: 5px solid transparent
-    border-bottom: 10px solid #63637e
+  grid-template: 4.5rem/ 1fr 4.5rem 1fr
+  place-items: end
+  grid-gap: 0 0.2rem
+  margin: 1rem 1rem 2rem
+  &-input
+    position: relative
+    &:before
+      position: absolute
+      color: #bbb
+      left: 1rem
+      top: -1.6rem
+      content: 'По названию'
+  &__input
+    height: 3.5rem
+    width: 100%
+    border: 2px solid #2e2f5b
+    border-radius: 1rem
+    background-color: #202046
+    box-shadow: 0 0 10px 0 rgb(0 0 0 / 20%) inset
+    font-size: 1.6rem
+    color: #fff
+    text-align: center
+    outline: none
 
+  &__btn
+    display: grid
+    justify-content: center
+    place-content: center
+    padding: 0
+    margin: 0
+    border: none
+    width: 4.5rem
+    height: 4.5rem
+    background-color: transparent
+    cursor: pointer
+
+
+.filter-number
+  position: relative
+  height: 3.5rem
+  display: grid
+  grid-template: 100% / min-content 1fr min-content
+  @media (max-width: 374px)
+    grid-template: 100% / 1fr
+  &:before
+    position: absolute
+    color: #bbb
+    left: 1rem
+    top: -1.6rem
+    content: 'По цене от'
+
+  &__btn
+    border: none
+    padding: 0
+    margin: 0
+    width: 3.5rem
+    height: 3.5rem
+    background-color: #27a15b
+    color: white
+    font-size: 1.6rem
+    font-weight: 600
+    cursor: pointer
+    &:first-child
+      border-radius: 1rem 0 0 1rem
+    &:last-child
+      border-radius: 0 1rem 1rem 0
+    @media (max-width: 374px)
+      display: none
+  &__input
+    width: 100%
+    border: 2px solid #27a15b
+    border-radius: 0
+    background-color: #202046
+    box-shadow: 0 0 10px 0 rgb(0 0 0 / 20%) inset
+    font-size: 1.6rem
+    color: #fff
+    text-align: center
+    outline: none
+    @media (max-width: 374px)
+      border-radius: 1rem
+    // Убираем стрелочки у input
+    &::-webkit-outer-spin-button
+      -webkit-appearance: none
+      margin: 0
+    &::-webkit-inner-spin-button
+      -webkit-appearance: none
+      margin: 0
+    &[type=number]
+      -moz-appearance: textfield
 .buy
   display: grid
   grid-template-columns: repeat(auto-fill, minmax(100px, 1fr))
