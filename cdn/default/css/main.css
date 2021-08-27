@@ -443,6 +443,11 @@ body[is_auth=""] header .header {
   height: 3rem;
   fill: white;
 }
+.icon-chat {
+  width: 3.2rem;
+  height: 3rem;
+  fill: white;
+}
 
 .title-icon {
   width: 1.8rem;
@@ -548,7 +553,7 @@ header {
 .logo {
   width: 16.7rem;
   height: 3.6rem;
-  background: url("../icons/logo.svg") no-repeat center;
+  background: url("../icons/logo-beta.svg") no-repeat center;
   cursor: pointer;
 }
 @media (max-width: 992px) {
@@ -1986,6 +1991,24 @@ body[page_open=classic__type_main] .control_menu_of_bet[data-menu_active] {
   background-color: #171b3a;
   border-radius: 1rem;
   padding: 1rem 0 1rem 1rem;
+}
+
+.toggle-chat {
+  display: grid;
+  place-items: center;
+  position: absolute;
+  bottom: 3rem;
+  left: -9rem;
+  width: 5.5rem;
+  height: 5.5rem;
+  border-radius: 50%;
+  background-color: #27a15b;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.toggle-chat:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 2rem 0 #27a15b;
 }
 
 .aside {
