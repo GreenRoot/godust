@@ -2006,6 +2006,11 @@ body[page_open=classic__type_main] .control_menu_of_bet[data-menu_active] {
   cursor: pointer;
   transition: transform 0.2s, box-shadow 0.2s;
 }
+@media (max-width: 992px) {
+  .toggle-chat {
+    display: none;
+  }
+}
 .toggle-chat:hover {
   transform: scale(1.05);
   box-shadow: 0 0 2rem 0 #27a15b;
