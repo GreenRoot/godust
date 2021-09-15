@@ -36,15 +36,16 @@
   font-size: 44pt
   color: white
 
-.multipliers_for_crash[data-player_bet_status]:not([data-player_bet_status=in_game]) .crash__bets__back
-  display: none
+.multipliers_for_crash[data-player_bet_status]
+  &:not([data-player_bet_status="in_game"]) .crash__bets__back
+    display: none
 
-.multipliers_for_crash[data-player_bet_status][data-player_bet_status=in_game] .crash__bets__send
-  display: none
+  &[data-player_bet_status="in_game"] .crash__bets__send
+    display: none
 
-input[type=number].arrows_disabled
+input[type="number"].arrows_disabled
   -moz-appearance: textfield
+input[type="number"].arrows_disabled::-webkit-outer-spin-button, input[type="number"].arrows_disabled::-webkit-inner-spin-button
 
-input[type=number].arrows_disabled::-webkit-outer-spin-button,input[type=number].arrows_disabled::-webkit-inner-spin-button
   -webkit-appearance: none
   margin: 0

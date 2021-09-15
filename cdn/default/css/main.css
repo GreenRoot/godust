@@ -78,7 +78,7 @@ body {
 @media (max-width: 992px) {
   .body {
     grid-template-columns: 100%;
-    grid-template-rows: var(--header-height) min-content 6rem;
+    grid-template-rows: var(--header-height) calc(100vh - (var(--header-height) + var(--footer-height) + var(--main-gap))) 6rem;
     gap: var(--main-gap) 0;
     grid-template-areas: "header" "main" "footer";
   }
@@ -440,11 +440,6 @@ body[is_auth=""] header .header {
   height: 3rem;
   fill: white;
 }
-.icon-chat {
-  width: 3.2rem;
-  height: 3rem;
-  fill: white;
-}
 
 .title-icon {
   width: 1.8rem;
@@ -550,7 +545,7 @@ header {
 .logo {
   width: 16.7rem;
   height: 3.6rem;
-  background: url("../icons/logo-beta.svg") no-repeat center;
+  background: url("/cdn/default/icons/logo-beta.svg") no-repeat center;
   cursor: pointer;
 }
 @media (max-width: 992px) {
@@ -624,7 +619,6 @@ header {
 body[data-sound=load] .sound-set .icon-sound, body[data-sound=true] .sound-set .icon-sound[data-status_for=false], body[data-sound=false] .sound-set .icon-sound[data-status_for=true] {
   display: none !important;
 }
-
 @media (max-width: 992px) {
   .sound-set {
     display: none;
@@ -1741,6 +1735,13 @@ body[page_open=classic__type_main] .control_menu_of_bet[data-menu_active] {
   padding: 0;
   grid-gap: 0.5rem;
 }
+.items-mobile > .item {
+  width: auto;
+  height: auto;
+  min-height: 11rem;
+  padding-top: 1rem;
+  margin: 0.3rem;
+}
 
 .items-mobile > .item {
   width: auto;
@@ -1758,7 +1759,7 @@ body[page_open=classic__type_main] .control_menu_of_bet[data-menu_active] {
   place-items: center;
   width: 11.2rem;
   height: 11.5rem;
-  background: center no-repeat url("../icons/itemsBG.png") #27274d;
+  background: center no-repeat url("/cdn/default/icons/itemsBG.png") #27274d;
   border-radius: 1rem;
   cursor: pointer;
   transition: transform, box-shadow 0.2s;
@@ -1787,6 +1788,70 @@ body[page_open=classic__type_main] .control_menu_of_bet[data-menu_active] {
   font-weight: 300;
   color: #999;
   padding-bottom: 1.5rem;
+}
+.item__name_extra {
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: grid;
+  grid-auto-columns: max-content;
+  align-items: center;
+  justify-items: center;
+  grid-auto-flow: column;
+  padding: 5px 10px;
+  grid-gap: 7px;
+  pointer-events: none;
+}
+.item__name_extra__stattrak {
+  color: #dfa202;
+}
+.item__name_extra__wear {
+  color: #999;
+  text-transform: uppercase;
+}
+.item[data-item_is_stattrak=false] .item__name_extra__stattrak {
+  display: none;
+}
+.item[data-item_wear=null] .item__name_extra__wear {
+  display: none;
+}
+.item__buttons {
+  left: 0;
+  top: 0;
+  position: absolute;
+  display: grid;
+  grid-auto-columns: max-content;
+  align-items: center;
+  justify-items: center;
+  grid-auto-flow: column;
+  grid-gap: 7px;
+  pointer-events: none;
+  transition: 200ms opacity cubic-bezier(0.18, 0.89, 0.32, 1.28);
+  opacity: 0;
+}
+.item__buttons img {
+  width: 100%;
+}
+.item__buttons__sell {
+  width: 35px;
+  border-radius: 35% 0;
+  padding: 3px;
+  text-transform: uppercase;
+  color: white;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-content: center;
+  transition: 200ms background-color cubic-bezier(0.18, 0.89, 0.32, 1.28);
+  background-color: rgba(186, 59, 60, 0.51);
+}
+.item__buttons__sell:hover {
+  background-color: #ba3b3c;
+}
+.item:hover .item__buttons {
+  pointer-events: all;
+  opacity: 1;
 }
 
 .item__name_extra {
@@ -2483,6 +2548,10 @@ body[chat_is_open=false] aside#aside {
   transform: translateX(46rem);
 }
 
+body[chat_is_open=false] aside#aside {
+  transform: translateX(46rem);
+}
+
 .crash {
   display: grid;
   grid-template: min-content 1fr/1fr;
@@ -2516,6 +2585,26 @@ body[chat_is_open=false] aside#aside {
   .crash-header #crash__round__scene__main {
     display: none;
   }
+  .crash-header #crash__user_bet__tabloid_of_item_upgrade {
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    margin-top: 40px;
+  }
+  .crash-header #crash__user_bet__tabloid_of_item_upgrade > * {
+    top: unset;
+    left: unset;
+    right: unset;
+  }
+  .crash-header #crash_round__bg_pic {
+    height: 100%;
+    background: url(/cdn/default/images/games_bg__crop.jpg);
+    background-size: cover;
+    background-repeat: repeat-x;
+    background-position-x: right;
+  }
+}
+
 
   .crash-header #crash__user_bet__tabloid_of_item_upgrade {
     align-items: center;
@@ -2988,10 +3077,27 @@ body[chat_is_open=false] aside#aside {
     top: 0;
     height: 280px;
   }
+  body .classic-header .background_of_game {
+    height: 100%;
+
+  }
 
   body .classic-header .background_of_game {
     height: 100%;
   }
+}
+.classic-header .background_of_game {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 250px;
+  width: 100%;
+  z-index: 3;
 }
 .classic-header .background_of_game {
   display: flex;
@@ -3176,7 +3282,7 @@ body[chat_is_open=false] aside#aside {
   position: absolute;
   top: 0;
   left: 0;
-  margin: 0;
+  margin: 0 0 0 0;
   padding: 0;
   display: flex;
   width: auto;
@@ -4255,6 +4361,102 @@ body[chat_is_open=false] aside#aside {
 .filter-number__input[type=number] {
   -moz-appearance: textfield;
 }
+.filter__input {
+  height: 3.5rem;
+  width: 100%;
+  border: 2px solid #2e2f5b;
+  border-radius: 1rem;
+  background-color: #202046;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2) inset;
+  font-size: 1.6rem;
+  color: #fff;
+  text-align: center;
+  outline: none;
+}
+.filter__btn {
+  display: grid;
+  justify-content: center;
+  place-content: center;
+  padding: 0;
+  margin: 0;
+  border: none;
+  width: 4.5rem;
+  height: 4.5rem;
+  background-color: transparent;
+  cursor: pointer;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.filter-number {
+  position: relative;
+  height: 3.5rem;
+  width: 100%;
+  display: grid;
+  grid-template: 100%/min-content 1fr min-content;
+}
+@media (max-width: 374px) {
+  .filter-number {
+    grid-template: 100%/1fr;
+  }
+}
+.filter-number:before {
+  position: absolute;
+  color: #bbb;
+  left: 1rem;
+  top: -1.6rem;
+  content: "По цене от";
+}
+.filter-number__btn {
+  border: none;
+  padding: 0;
+  margin: 0;
+  width: 3.5rem;
+  height: 3.5rem;
+  background-color: #27a15b;
+  color: white;
+  font-size: 1.6rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+.filter-number__btn:first-child {
+  border-radius: 1rem 0 0 1rem;
+}
+.filter-number__btn:last-child {
+  border-radius: 0 1rem 1rem 0;
+}
+@media (max-width: 374px) {
+  .filter-number__btn {
+    display: none;
+  }
+}
+.filter-number__input {
+  width: 100%;
+  border: 2px solid #27a15b;
+  border-radius: 0;
+  background-color: #202046;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2) inset;
+  font-size: 1.6rem;
+  color: #fff;
+  text-align: center;
+  outline: none;
+}
+@media (max-width: 374px) {
+  .filter-number__input {
+    border-radius: 1rem;
+  }
+}
+.filter-number__input::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+.filter-number__input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+.filter-number__input[type=number] {
+  -moz-appearance: textfield;
+}
 
 .buy {
   display: grid;
@@ -4393,7 +4595,6 @@ body[chat_is_open=false] aside#aside {
   overflow: hidden;
   position: relative;
 }
-
 #inv__market_button__main > span {
   display: flex;
   width: 100%;
@@ -4404,17 +4605,14 @@ body[chat_is_open=false] aside#aside {
   position: absolute;
   transition: 200ms opacity cubic-bezier(0, 0, 0.2, 1);
 }
-
 #inv__market_button__main [data-market_button=buy] {
   opacity: 1;
   background-color: #27a148;
 }
-
 #inv__market_button__main:not([data-inv_play__selected="0.00"]) [data-market_button=sell] {
   opacity: 1;
   background-color: #ba3b3ce0;
 }
-
 #inv__market_button__main:not([data-selected="0.00"]):not([data-inv_play__selected="0.00"]) [data-market_button=change] {
   opacity: 1;
   background-color: #411878;
@@ -5220,10 +5418,10 @@ body[chat_is_open=false] aside#aside {
   display: flex;
   cursor: pointer;
 }
-
 .games__block_of_fair__container:hover {
   text-decoration: underline;
-  color: #fff;
+  color: white;
+
 }
 
 .faq {

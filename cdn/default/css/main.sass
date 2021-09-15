@@ -70,7 +70,8 @@ body
   grid-template-areas: "header header header header" "nav main main main" "nav main main main"
   @media (max-width: 992px)
     grid-template-columns: 100%
-    grid-template-rows: var(--header-height) min-content 6rem
+    grid-template-rows: var(--header-height) calc(100vh - (var(--header-height) + var(--footer-height) + var(--main-gap))) 6rem
+
     gap: var(--main-gap) 0
     grid-template-areas: "header" "main" "footer"
     & main#main

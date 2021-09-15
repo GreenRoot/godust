@@ -325,14 +325,12 @@ body[page_open="classic__type_main"] .control_menu_of_bet[data-menu_active]
     grid-template-columns: repeat(auto-fill, minmax(100px, 1fr))
     padding: 0
     grid-gap: .5rem
-
-//Надо проверить
-.items-mobile>.item
-  width: auto
-  height: auto
-  min-height: 11rem
-  padding-top: 1rem
-  margin: .3rem
+    & > .item
+      width: auto
+      height: auto
+      min-height: 11rem
+      padding-top: 1rem
+      margin: .3rem
 .item
   position: relative
   user-select: none
@@ -341,24 +339,20 @@ body[page_open="classic__type_main"] .control_menu_of_bet[data-menu_active]
   place-items: center
   width: 11.2rem
   height: 11.5rem
-  background: center no-repeat url("../icons/itemsBG.png") #27274d
+  background: center no-repeat url("/cdn/default/icons/itemsBG.png") #27274d
   border-radius: 1rem
   cursor: pointer
   transition: (transform, box-shadow) .2s
   &-selected
     box-shadow: 0 0 1rem rgba(0, 0, 0, 0.25), 0 0 1rem #50a869 inset
     transform: scale(1.04)
-
-.item.is_loading
-  box-shadow: none
-  transform: unset
-  opacity: .5
-  pointer-events: none
-
-.item.is_loading .item__buttons
-  display: none
-
-.item
+  &.is_loading
+    box-shadow: none
+    transform: unset
+    opacity: 0.5
+    pointer-events: none
+    & .item__buttons
+      display: none
   &__img
     width: calc(100% - 2rem)
   &__price
@@ -366,6 +360,61 @@ body[page_open="classic__type_main"] .control_menu_of_bet[data-menu_active]
     font-weight: 300
     color: #999
     padding-bottom: 1.5rem
+  &__name_extra
+    position: absolute
+    top: 0
+    right: 0
+    display: grid
+    grid-auto-columns: max-content
+    align-items: center
+    justify-items: center
+    grid-auto-flow: column
+    padding: 5px 10px
+    grid-gap: 7px
+    pointer-events: none
+    &__stattrak
+      color: #dfa202
+    &__wear
+      color: #999
+      text-transform: uppercase
+  &[data-item_is_stattrak="false"] .item__name_extra__stattrak
+    display: none
+  &[data-item_wear="null"] .item__name_extra__wear
+    display: none
+
+  &__buttons
+    left: 0
+    top: 0
+    position: absolute
+    display: grid
+    grid-auto-columns: max-content
+    align-items: center
+    justify-items: center
+    grid-auto-flow: column
+    grid-gap: 7px
+    pointer-events: none
+    transition: 200ms opacity cubic-bezier(0.18, 0.89, 0.32, 1.28)
+    opacity: 0
+    & img
+      width: 100%
+    &__sell
+      width: 35px
+      border-radius: 35% 0
+      padding: 3px
+      text-transform: uppercase
+      color: white
+      text-align: center
+      display: flex
+      align-items: center
+      justify-content: center
+      align-content: center
+      transition: 200ms background-color cubic-bezier(0.18, 0.89, 0.32, 1.28)
+      background-color: rgba(186, 59, 60, 0.51)
+      &:hover
+        background-color: #ba3b3c
+  &:hover &__buttons
+    pointer-events: all
+    opacity: 1
 
 .item__name_extra
   position: absolute

@@ -13,7 +13,7 @@
   transition: left .2s
   z-index: 4
   @media (max-width: 992px)
-    grid-template: 3.5rem 1fr 10.5rem / 1fr
+    grid-template: 3.5rem 1fr 10.5rem/1fr
     width: 100%
     left: -100%
     position: fixed
@@ -22,18 +22,22 @@
   &_active
     left: 0
     box-shadow: .5rem .5rem 1.5rem 0 #000
+
   &__close
     position: absolute
     top: 2rem
     right: 2rem
     cursor: pointer
+
   &__title
     font-size: 1.8rem
     color: #fff
     text-transform: uppercase
+
   &__items
     border-radius: .5rem
     background-color: #1b1e40
+
   &__filter
     display: grid
     grid-template: 4.5rem/repeat(3,1fr)
@@ -41,20 +45,24 @@
     margin: 1rem 1rem 2rem
     border-radius: 0.5rem
     overflow: hidden
+
   &__items-wrapper
     width: 100%
     height: calc(var(--vv_height) - 40.5rem)
     background-color: #1b1e3f
     overflow: hidden
     overflow-y: scroll
+
     &::-webkit-scrollbar
       width: 0
+
     & .simplebar-track.simplebar-vertical
       background-color: #2e2f5b
       border-radius: 1rem
       width: 0.5rem
       height: 90%
       transform: translateY(5%)
+
     & .simplebar-scrollbar:before
       top: 0
       left: 0
@@ -63,6 +71,7 @@
       background-color: #393a61
       width: 0.5rem
       border-radius: 1rem
+
   &__counter
     display: grid
     grid-template: repeat(2, 1fr) / repeat(3, 1fr)
@@ -124,6 +133,44 @@
     left: 1rem
     top: -1.6rem
     content: 'По цене от'
+  &__btn
+    border: none
+    padding: 0
+    margin: 0
+    width: 3.5rem
+    height: 3.5rem
+    background-color: #27a15b
+    color: white
+    font-size: 1.6rem
+    font-weight: 600
+    cursor: pointer
+    &:first-child
+      border-radius: 1rem 0 0 1rem
+    &:last-child
+      border-radius: 0 1rem 1rem 0
+    @media (max-width: 374px)
+      display: none
+  &__input
+    width: 100%
+    border: 2px solid #27a15b
+    border-radius: 0
+    background-color: #202046
+    box-shadow: 0 0 10px 0 rgb(0 0 0 / 20%) inset
+    font-size: 1.6rem
+    color: #fff
+    text-align: center
+    outline: none
+    @media (max-width: 374px)
+      border-radius: 1rem
+    // Убираем стрелочки у input
+    &::-webkit-outer-spin-button
+      -webkit-appearance: none
+      margin: 0
+    &::-webkit-inner-spin-button
+      -webkit-appearance: none
+      margin: 0
+    &[type=number]
+      -moz-appearance: textfield
 
   &__btn
     border: none
@@ -171,6 +218,7 @@
   height: 100%
   padding: 1rem
   margin: 0
+
   &__item
     display: grid
     grid-template-columns: 11rem
@@ -186,15 +234,19 @@
     background-color: #202245
     cursor: pointer
     transition: box-shadow .2s
+
     &-selected
       box-shadow: 0 0 1rem rgb(0 0 0 / 25%), 0 0 1rem #50a869 inset
+
     & img
       width: calc(100% - 2rem)
+
     &-price
       font-size: 1.1rem
       font-weight: 600
       color: #27a15b
       padding: 0 1rem
+
     &-name
       width: 100%
       font-size: .9rem
@@ -205,6 +257,7 @@
       overflow: hidden
       text-align: center
       text-overflow: ellipsis
+
     &-label
       width: 100%
       font-size: .9rem
@@ -215,6 +268,7 @@
       overflow: hidden
       text-align: center
       text-overflow: ellipsis
+
     &-state
       width: 100%
       font-size: .9rem
@@ -225,6 +279,7 @@
       overflow: hidden
       text-align: center
       text-overflow: ellipsis
+
 .counter
   display: grid
   place-content: center
@@ -233,10 +288,13 @@
   background-color: #25284f
   color: #fff
   text-transform: uppercase
+
   &-green
     color: #27a15b
+
   &-red
     color: #ba3b3b
+
   &-btn
     grid-row: 2 / 3
     grid-column: 1 / 3
@@ -250,10 +308,13 @@
     font-size: 1.6rem
     color: #fff
     text-transform: uppercase
+
     &:hover
       background-color: darken(#27a15b, 5%)
+
     &:active
       background-color: darken(#27a15b, 10%)
+
   &-refresh
     grid-row: 2 / 3
     grid-column: 3 / 4
@@ -264,14 +325,18 @@
     border-radius: 1rem
     background-color: #27a15b
     cursor: pointer
+
     &:hover
       background-color: darken(#27a15b, 5%)
+
     &:active
       background-color: darken(#27a15b, 10%)
+
   & div
     &:first-child
       font-size: 1.4rem
       font-weight: 600
+
     &:last-child
       font-size: 1.2rem
       font-weight: 300
@@ -280,26 +345,22 @@
   padding: 0
   overflow: hidden
   position: relative
+  & > span
+    display: flex
+    width: 100%
+    height: 100%
+    justify-content: center
+    align-items: center
+    opacity: 0
+    position: absolute
+    transition: 200ms opacity cubic-bezier(0, 0, 0.2, 1)
 
-#inv__market_button__main>span
-  display: flex
-  width: 100%
-  height: 100%
-  justify-content: center
-  align-items: center
-  opacity: 0
-  position: absolute
-  transition: 200ms opacity cubic-bezier(0,0,.2,1)
-
-#inv__market_button__main [data-market_button=buy]
-  opacity: 1
-  background-color: #27a148
-
-#inv__market_button__main:not([data-inv_play__selected="0.00"]) [data-market_button=sell]
-  opacity: 1
-  background-color: #ba3b3ce0
-
-#inv__market_button__main:not([data-selected="0.00"]):not([data-inv_play__selected="0.00"]) [data-market_button=change]
-  opacity: 1
-  background-color: #411878
-
+  & [data-market_button="buy"]
+    opacity: 1
+    background-color: #27a148
+  &:not([data-inv_play__selected="0.00"]) [data-market_button="sell"]
+    opacity: 1
+    background-color: #ba3b3ce0
+  &:not([data-selected="0.00"]):not([data-inv_play__selected="0.00"]) [data-market_button="change"]
+    opacity: 1
+    background-color: #411878

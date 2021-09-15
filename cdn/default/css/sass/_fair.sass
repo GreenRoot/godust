@@ -119,16 +119,15 @@
     text-overflow: ellipsis
     white-space: nowrap
 
-.games__block_of_fair__main 
-  grid-auto-flow: column
-  grid-auto-columns: max-content
-  grid-gap: 5px
-  justify-content: center
-
-.games__block_of_fair__container 
-  display: flex
-  cursor: pointer
-
-.games__block_of_fair__container:hover 
-  text-decoration: underline
-  color: #fff
+.games__block_of_fair
+  &__main
+    grid-auto-flow: column
+    grid-auto-columns: max-content
+    grid-gap: 5px
+    justify-content: center
+  &__container
+    display: flex
+    cursor: pointer
+    &:hover
+      text-decoration: underline
+      color: white
