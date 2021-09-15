@@ -1,0 +1,134 @@
+.fair
+  background-color: #202046
+  border-radius: 1rem
+  padding: 2.5rem 2rem 0
+  height: calc(100vh - 11rem)
+  width: 100%
+  min-width: 72.5rem
+  overflow: hidden
+  overflow-y: scroll
+  &::-webkit-scrollbar
+    width: 0
+  @media (max-width: 1200px)
+    grid-gap: 2rem 0
+    border-radius: 0
+    background-color: #171b3a
+    min-width: auto
+  &_wrapper
+    display: grid
+    grid-gap: 2rem
+    padding: 3rem 5rem
+    @media (max-width: 600px)
+      padding: 3rem 0
+  &__line
+    width: 100%
+    height: .2rem
+    background-color: #27274d
+  &__text-bold
+    color: white
+    font-size: 1.8rem
+    font-weight: 600
+  &__text
+    color: white
+    font-size: 1.4rem
+    overflow-wrap: anywhere
+  &__table
+    display: grid
+    grid-gap: 2rem
+    width: 100%
+    min-height: 5rem
+    background-color: #272755
+    border-radius: 1rem
+    padding: 2rem
+    @media (max-width: 500px)
+      grid-gap: 1rem
+      padding: 1rem
+  &__link-gen
+    color: white
+    text-decoration: none
+    display: inline-block
+    background-color: #1d7844
+    width: 2rem
+    height: 1.5rem
+    line-height: 1.5rem
+    text-align: center
+    border-radius: .5rem
+    cursor: pointer
+    &:hover
+      background-color: darken(#1d7844,  5%)
+    &:active
+      background-color: darken(#1d7844, 10%)
+  &__list
+    display: grid
+    grid-gap: 1rem
+    &-item
+      list-style: none
+      position: relative
+      color: white
+      font-size: 1.2rem
+      &:before
+        position: absolute
+        top: 0
+        left: -2rem
+        content: ''
+        display: block
+        width: 1rem
+        height: 1rem
+        border-radius: 50%
+        background-color: #1d7844
+
+.fair-hash
+  display: grid
+  grid-auto-flow: column
+  grid-gap: 1rem
+  grid-template: min-content / 15rem 1fr
+  @media (max-width: 500px)
+    grid-template: min-content min-content / 1fr
+    grid-gap: 0
+  &__title
+    text-align: center
+    line-height: 4rem
+    height: 4rem
+    width: 100%
+    padding: 0 1rem
+    color: white
+    font-size: 1.4rem
+    font-weight: 300
+    text-transform: uppercase
+    background-color: #1d7844
+    border-radius: 2rem 0 0 2rem
+    overflow: hidden
+    text-overflow: ellipsis
+    white-space: nowrap
+    @media (max-width: 500px)
+      border-radius: 1rem 1rem 0 0
+  &__info
+    display: grid
+    align-content: center
+    grid-template: min-content / 1fr min-content
+    padding: 0 2rem
+    background-color: #202046
+    border-radius: 0 2rem 2rem 0
+    height: 4rem
+    @media (max-width: 500px)
+      border-radius: 0 0 1rem 1rem
+  &__text
+    color: white
+    font-size: 1.2rem
+    overflow: hidden
+    text-overflow: ellipsis
+    white-space: nowrap
+
+.games__block_of_fair__main 
+  grid-auto-flow: column
+  grid-auto-columns: max-content
+  grid-gap: 5px
+  justify-content: center
+
+.games__block_of_fair__container 
+  display: flex
+  cursor: pointer
+
+.games__block_of_fair__container:hover 
+  text-decoration: underline
+  color: #fff

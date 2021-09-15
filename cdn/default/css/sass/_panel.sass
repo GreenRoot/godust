@@ -149,26 +149,26 @@
       height: 4rem
 
 // Data атрибуты для control-panel
-#control_menu_of_bet[data-menu_active]
+body .control_menu_of_bet[data-menu_active]
   --menu__classic: none
   --menu__crash: none
   --menu__empty: grid
 
-#control_menu_of_bet[data-menu_active="classic"]
-  --menu__classic: grid
-  --menu__empty: none
-
-#control_menu_of_bet[data-menu_active="crash"]
+body[page_open="crash"] .control_menu_of_bet[data-menu_active]
   --menu__crash: grid
   --menu__empty: none
 
-#control_menu_of_bet [data-menu_name="classic"]
+body[page_open="classic__type_main"] .control_menu_of_bet[data-menu_active]
+  --menu__classic: grid
+  --menu__empty: none
+
+.control_menu_of_bet [data-menu_name="classic"]
   display: var(--menu__classic)
 
-#control_menu_of_bet [data-menu_name="crash"]
+.control_menu_of_bet [data-menu_name="crash"]
   display: var(--menu__crash)
 
-#control_menu_of_bet [data-menu_name="empty"]
+.control_menu_of_bet [data-menu_name="empty"]
   display: var(--menu__empty)
 
 .inv-choice
@@ -325,7 +325,16 @@
     grid-template-columns: repeat(auto-fill, minmax(100px, 1fr))
     padding: 0
     grid-gap: .5rem
+
+//Надо проверить
+.items-mobile>.item
+  width: auto
+  height: auto
+  min-height: 11rem
+  padding-top: 1rem
+  margin: .3rem
 .item
+  position: relative
   user-select: none
   display: grid
   place-content: end
@@ -337,15 +346,19 @@
   cursor: pointer
   transition: (transform, box-shadow) .2s
   &-selected
-    //border: 1px solid #50a869
     box-shadow: 0 0 1rem rgba(0, 0, 0, 0.25), 0 0 1rem #50a869 inset
     transform: scale(1.04)
-  &-mobile
-    width: auto
-    height: auto
-    min-height: 11rem
-    padding-top: 1rem
-    margin: .3rem
+
+.item.is_loading
+  box-shadow: none
+  transform: unset
+  opacity: .5
+  pointer-events: none
+
+.item.is_loading .item__buttons
+  display: none
+
+.item
   &__img
     width: calc(100% - 2rem)
   &__price
@@ -353,6 +366,71 @@
     font-weight: 300
     color: #999
     padding-bottom: 1.5rem
+
+.item__name_extra
+  position: absolute
+  top: 0
+  right: 0
+  display: grid
+  grid-auto-columns: max-content
+  align-items: center
+  justify-items: center
+  grid-auto-flow: column
+  padding: 5px 10px
+  grid-gap: 7px
+  pointer-events: none
+
+.item__name_extra__stattrak
+  color: #dfa202
+
+.item__name_extra__wear
+  color: #999
+  text-transform: uppercase
+
+.item[data-item_is_stattrak=false] .item__name_extra__stattrak
+  display: none
+
+.item[data-item_wear=null] .item__name_extra__wear
+  display: none
+
+.item__buttons
+  left: 0
+  top: 0
+  position: absolute
+  display: grid
+  grid-auto-columns: max-content
+  align-items: center
+  justify-items: center
+  grid-auto-flow: column
+  grid-gap: 7px
+  pointer-events: none
+  transition: 200ms opacity cubic-bezier(.18,.89,.32,1.28)
+  opacity: 0
+
+.item__buttons img
+  width: 100%
+
+.item__buttons__sell
+  width: 35px
+  border-radius: 35% 0
+  padding: 3px
+  text-transform: uppercase
+  color: #fff
+  text-align: center
+  display: flex
+  align-items: center
+  justify-content: center
+  align-content: center
+  transition: 200ms background-color cubic-bezier(.18,.89,.32,1.28)
+  background-color: rgba(186,59,60,.51)
+
+.item__buttons__sell:hover
+  background-color: #ba3b3c
+
+.item:hover .item__buttons
+  pointer-events: all
+  opacity: 1
+
 
 .skin-market
   display: grid
@@ -407,21 +485,20 @@
 
 .mobile-header
   width: 100%
-  height: 17rem
+  height: 280px
   border-radius: 1rem
   background-color: var(--bg-b)
+
+.content-panel > .content_unit
+  position: relative
+  grid-gap: 1rem 0
 
 .mobile-past
   position: relative
   display: grid
   align-items: center
-.mobile-past-shadow
-  position: absolute
-  width: 100%
-  height: 100%
-  background: transparent
-  background: linear-gradient(90deg, transparent 80%, var(--bg-b) 100%)
 .mobile-past-games
+  position: relative
   display: grid
   grid-auto-flow: column
   grid-auto-columns: min-content
@@ -430,6 +507,15 @@
   width: 100%
   height: 3rem
   overflow: hidden
+  &:after
+    content: ''
+    position: absolute
+    width: 100%
+    height: 100%
+    background: 0 0
+    background: linear-gradient(90deg, transparent 80%, #252a50 calc(100% - 4rem))
+  &_crash:after
+    background: linear-gradient(90deg, transparent 80%, #252a50 calc(100% - 2rem))
   &__game
     display: grid
     place-items: center
@@ -514,6 +600,7 @@
 .mobile-count-wr
   display: grid
   grid-auto-flow: column
+  grid-template-columns: repeat(3, 1fr) //*Ааааа
   grid-gap: 0 1.5rem
   width: 100%
 

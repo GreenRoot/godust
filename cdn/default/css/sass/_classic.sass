@@ -9,15 +9,40 @@
     height: auto
 .classic-header
   width: 100%
-  height: 20rem
+  height: 250px
   border-radius: 1rem
   background-color: var(--bg-b)
-  @media (max-width: 992px)
-    display: none
+  overflow: hidden
+  position: relative
+  display: flex
+  justify-content: flex-end
+  align-items: center
+  flex-direction: column
+@media (max-width: 992px)
+  .classic-header
+    position: absolute
+    top: 0
+    height: 280px
+  body .classic-header .background_of_game
+    height: 100%
+
+.classic-header .background_of_game
+  display: flex
+  flex-direction: row
+  justify-content: center
+  align-items: center
+  align-content: center
+  position: absolute
+  left: 0
+  top: 0
+  height: 250px
+  width: 100%
+  z-index: 3
+
 
 .classic-game
   display: grid
-  grid-template: min-content min-content 1fr min-content / 1fr
+  grid-template: min-content 1fr min-content / 1fr
   width: 100%
   height: 100%
   background-color: var(--bg-b)
@@ -31,12 +56,11 @@
   position: relative
   width: 100%
   height: 8.5rem
-  @media (max-width: 992px)
-    display: none
   &:before
     position: absolute
+    z-index: 1
     content: ''
-    top: 0
+    bottom: 73px
     width: 100%
     height: .6rem
     background: linear-gradient(90deg, var(--bg-b) 0%, #2e2f5b 25%, #3b3b5a 50%, #2e2f5b 75%, var(--bg-b) 100%)
@@ -132,8 +156,9 @@
 
 .classic-round-shadow
   position: absolute
+  bottom: 0
   width: 100%
-  height: 100%
+  height: 73px
   background: linear-gradient(90deg, var(--bg-b) 0%, transparent 25%, transparent 75%, var(--bg-b) 100%)
   box-shadow: 0 0 1.5rem 0 rgba(34, 60, 80, 0.2)
   z-index: 2
@@ -148,32 +173,35 @@
   overflow: hidden
   &__arrow
     position: absolute
-    top: 0
-    bottom: 0
+    bottom: -1px
     right: 0
     left: 0
     width: 100%
     height: 8.5rem
     z-index: 2
+    pointer-events: none
 
 .classic-roulette-users
-  display: grid
-  grid-auto-flow: column
-  place-items: center
-  place-content: start
-  grid-gap: 0 .4rem
-  width: 100%
   height: 100%
-  overflow: hidden
+  position: absolute
+  top: 0
+  left: 0
+  margin: 0
+  padding: 0
+  display: flex
+  width: auto
+  align-items: center
+  justify-content: flex-start
+  flex-direction: row
+  flex-wrap: nowrap
 
 .classic-roulette-user
-  width: 6.5rem
-  height: 6.5rem
-  padding: .4rem
+  width: 65px
+  height: 65px
+  margin: 0 .5px
   border-radius: 1rem
   background-color: #27274d
   overflow: hidden
-  animation: test1 100s linear infinite
   & img
     width: 100%
     height: 100%
@@ -186,19 +214,42 @@
   100%
     transform: translateX(-100rem)
 
-.classic-timer
-  display: grid
-  place-items: center
+.classic-timer__old
+  display: flex
   width: 23.8rem
   height: 6.7rem
   font-size: 2.4rem
   color: #fff
   border-radius: 0 0 3rem 3rem
   background-color: #27274d
-  border: .2rem solid #363659
+  border: 0.2rem solid #363659
   border-top-width: 0
-  @media (max-width: 992px)
-    display: none
+  align-content: center
+  flex-wrap: nowrap
+  justify-content: center
+  align-items: center
+
+.classic-timer
+  position: absolute
+  display: flex
+  justify-content: center
+  width: auto
+  min-width: 10rem
+  height: 5rem
+  padding: 1rem 3rem
+  align-items: center
+  font-size: 3.5rem
+  font-weight: 900
+  text-transform: uppercase
+  white-space: nowrap
+  color: #27a15b
+  border: 0.5rem solid #2f2f5a
+  border-radius: 1rem
+  background-color: #272755
+  box-shadow: inset 0 0 1rem 1rem #202546
+  top: 0.5rem
+  left: 50%
+  transform: translateX(-50%)
 
 .classic-stat
   display: grid
@@ -251,7 +302,7 @@
   grid-gap: .1rem .6rem
   height: 7.5rem
   padding: 0 3.5rem
-  background-color: #50a869
+  background-color: #d29b09
   border-radius: 1rem
   @media (max-width: 1250px)
     grid-template: repeat(2, min-content) / min-content
@@ -284,7 +335,7 @@
   position: absolute
   width: 100%
   height: 100%
-  background: transparent
+  background: 0 0
   background: linear-gradient(90deg, transparent 70%, var(--bg-b) 90%)
 
 .classic-past-history
@@ -295,6 +346,11 @@
   background-color: #31325a
   border-radius: .5rem
   cursor: pointer
+  @media (max-width: 992px)
+    width: 3rem
+    height: 3rem
+    z-index: 1
+    right: 1rem
 
 .classic-past-games
   display: grid
@@ -353,8 +409,6 @@
   display: flex
   flex-direction: column
   margin-right: .7rem
-  @media (max-width: 1250px)
-    grid-gap: 1rem 0
 
 .classic-bet
   position: relative
@@ -366,8 +420,8 @@
   grid-gap: 0 2rem
   width: 100%
   height: 8.4rem
-  margin-bottom: 1.5rem
   margin-left: .3rem
+  margin-bottom: 1rem
   padding: 0 5rem 0 2rem
   background-color: #27274d
   border: .1rem solid #3f4370
@@ -450,7 +504,8 @@
     right: 0
     background-color: #3f4370
     height: 100%
-    width: 3rem
+    min-width: 4rem
+    padding: 0 5px
     font-size: 1.8rem
     color: white
     border-radius: 0 1rem 1rem 0
