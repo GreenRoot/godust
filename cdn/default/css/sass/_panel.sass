@@ -325,7 +325,16 @@ body[page_open="classic__type_main"] .control_menu_of_bet[data-menu_active]
     grid-template-columns: repeat(auto-fill, minmax(100px, 1fr))
     padding: 0
     grid-gap: .5rem
+
+//Надо проверить
+.items-mobile>.item
+  width: auto
+  height: auto
+  min-height: 11rem
+  padding-top: 1rem
+  margin: .3rem
 .item
+  position: relative
   user-select: none
   display: grid
   place-content: end
@@ -337,15 +346,19 @@ body[page_open="classic__type_main"] .control_menu_of_bet[data-menu_active]
   cursor: pointer
   transition: (transform, box-shadow) .2s
   &-selected
-    //border: 1px solid #50a869
     box-shadow: 0 0 1rem rgba(0, 0, 0, 0.25), 0 0 1rem #50a869 inset
     transform: scale(1.04)
-  &-mobile
-    width: auto
-    height: auto
-    min-height: 11rem
-    padding-top: 1rem
-    margin: .3rem
+
+.item.is_loading
+  box-shadow: none
+  transform: unset
+  opacity: .5
+  pointer-events: none
+
+.item.is_loading .item__buttons
+  display: none
+
+.item
   &__img
     width: calc(100% - 2rem)
   &__price
@@ -353,6 +366,71 @@ body[page_open="classic__type_main"] .control_menu_of_bet[data-menu_active]
     font-weight: 300
     color: #999
     padding-bottom: 1.5rem
+
+.item__name_extra
+  position: absolute
+  top: 0
+  right: 0
+  display: grid
+  grid-auto-columns: max-content
+  align-items: center
+  justify-items: center
+  grid-auto-flow: column
+  padding: 5px 10px
+  grid-gap: 7px
+  pointer-events: none
+
+.item__name_extra__stattrak
+  color: #dfa202
+
+.item__name_extra__wear
+  color: #999
+  text-transform: uppercase
+
+.item[data-item_is_stattrak=false] .item__name_extra__stattrak
+  display: none
+
+.item[data-item_wear=null] .item__name_extra__wear
+  display: none
+
+.item__buttons
+  left: 0
+  top: 0
+  position: absolute
+  display: grid
+  grid-auto-columns: max-content
+  align-items: center
+  justify-items: center
+  grid-auto-flow: column
+  grid-gap: 7px
+  pointer-events: none
+  transition: 200ms opacity cubic-bezier(.18,.89,.32,1.28)
+  opacity: 0
+
+.item__buttons img
+  width: 100%
+
+.item__buttons__sell
+  width: 35px
+  border-radius: 35% 0
+  padding: 3px
+  text-transform: uppercase
+  color: #fff
+  text-align: center
+  display: flex
+  align-items: center
+  justify-content: center
+  align-content: center
+  transition: 200ms background-color cubic-bezier(.18,.89,.32,1.28)
+  background-color: rgba(186,59,60,.51)
+
+.item__buttons__sell:hover
+  background-color: #ba3b3c
+
+.item:hover .item__buttons
+  pointer-events: all
+  opacity: 1
+
 
 .skin-market
   display: grid
@@ -407,7 +485,7 @@ body[page_open="classic__type_main"] .control_menu_of_bet[data-menu_active]
 
 .mobile-header
   width: 100%
-  height: 17rem
+  height: 280px
   border-radius: 1rem
   background-color: var(--bg-b)
 
@@ -434,7 +512,7 @@ body[page_open="classic__type_main"] .control_menu_of_bet[data-menu_active]
     position: absolute
     width: 100%
     height: 100%
-    background: transparent
+    background: 0 0
     background: linear-gradient(90deg, transparent 80%, #252a50 calc(100% - 4rem))
   &_crash:after
     background: linear-gradient(90deg, transparent 80%, #252a50 calc(100% - 2rem))

@@ -1,23 +1,24 @@
 .market
   position: absolute
   display: grid
-  grid-template: 3.5rem 1fr 13.5rem / 1fr
+  grid-template: 3.5rem 1fr 12.5rem / 1fr
   grid-gap: 2rem 0
   width: 53rem
-  height: calc(100vh - (var(--header-height) + var(--footer-height) + var(--main-gap)))
+  height: calc(var(--vv_height) - (var(--header-height) + var(--footer-height) + var(--main-gap)) + 1rem)
   top: 0
   left: -53rem
   padding: 2rem
   border-radius: 1rem
   background-color: #171b3a
   transition: left .2s
-  z-index: 3
+  z-index: 4
   @media (max-width: 992px)
-    grid-template: 3.5rem 1fr 11.5rem / 1fr
+    grid-template: 3.5rem 1fr 10.5rem / 1fr
     width: 100%
     left: -100%
     position: fixed
-    top: 5rem
+    top: 4rem
+    border-radius: 0
   &_active
     left: 0
     box-shadow: .5rem .5rem 1.5rem 0 #000
@@ -33,9 +34,16 @@
   &__items
     border-radius: .5rem
     background-color: #1b1e40
+  &__filter
+    display: grid
+    grid-template: 4.5rem/repeat(3,1fr)
+    grid-gap: 0 0.2rem
+    margin: 1rem 1rem 2rem
+    border-radius: 0.5rem
+    overflow: hidden
   &__items-wrapper
     width: 100%
-    height: calc(100vh - 40.5rem)
+    height: calc(var(--vv_height) - 40.5rem)
     background-color: #1b1e3f
     overflow: hidden
     overflow-y: scroll
@@ -67,6 +75,7 @@
   grid-gap: 0 0.2rem
   margin: 1rem 1rem 2rem
   &-input
+    width: 100%
     position: relative
     &:before
       position: absolute
@@ -97,11 +106,14 @@
     height: 4.5rem
     background-color: transparent
     cursor: pointer
+    opacity: 0
+    pointer-events: none
 
 
 .filter-number
   position: relative
   height: 3.5rem
+  width: 100%
   display: grid
   grid-template: 100% / min-content 1fr min-content
   @media (max-width: 374px)
@@ -264,5 +276,30 @@
       font-size: 1.2rem
       font-weight: 300
 
+#inv__market_button__main
+  padding: 0
+  overflow: hidden
+  position: relative
 
+#inv__market_button__main>span
+  display: flex
+  width: 100%
+  height: 100%
+  justify-content: center
+  align-items: center
+  opacity: 0
+  position: absolute
+  transition: 200ms opacity cubic-bezier(0,0,.2,1)
+
+#inv__market_button__main [data-market_button=buy]
+  opacity: 1
+  background-color: #27a148
+
+#inv__market_button__main:not([data-inv_play__selected="0.00"]) [data-market_button=sell]
+  opacity: 1
+  background-color: #ba3b3ce0
+
+#inv__market_button__main:not([data-selected="0.00"]):not([data-inv_play__selected="0.00"]) [data-market_button=change]
+  opacity: 1
+  background-color: #411878
 
