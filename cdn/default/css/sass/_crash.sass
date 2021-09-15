@@ -29,7 +29,12 @@
         top: unset
         left: unset
         right: unset
-
+    & #crash_round__bg_pic
+      height: 100%
+      background: url(/cdn/default/images/games_bg__crop.jpg)
+      background-size: cover
+      background-repeat: repeat-x
+      background-position-x: right
 .crash-game
   display: grid
   grid-template: min-content 1fr min-content / 1fr
@@ -58,7 +63,7 @@
 .crash-count
   display: grid
   grid-template: 1fr / 1fr min-content 1fr
-  grid-gap: 0 3.3rem
+  grid-gap: 0 2.3rem
   align-items: center
   justify-content: center
   width: 30rem
@@ -132,7 +137,7 @@
   grid-gap: .1rem .6rem
   height: 7.5rem
   padding: 0 3.5rem
-  background-color: #50a869
+  background-color: #d29b09
   border-radius: 1rem
   @media (max-width: 1250px)
     grid-template: repeat(2, min-content) / min-content

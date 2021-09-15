@@ -1,3 +1,4 @@
+@charset "UTF-8";
 * {
   --header-height: 7rem;
   --footer-height: 0rem;
@@ -88,6 +89,14 @@ body {
 
 a[href] {
   text-decoration: none;
+}
+
+body[page_open]:not([page_open=crash]):not([page_open=classic__type_main]) #mobilePanel {
+  display: none;
+}
+
+body[is_auth=""] header .header {
+  grid-template-areas: "logo social deposit";
 }
 
 .icon-vk {
@@ -416,6 +425,21 @@ a[href] {
   height: 1.5rem;
   fill: white;
 }
+.icon-fair {
+  width: 1.8rem;
+  height: 1.8rem;
+  fill: white;
+}
+.icon-faq {
+  width: 1.8rem;
+  height: 1.8rem;
+  fill: white;
+}
+.icon-filter-refresh {
+  width: 3rem;
+  height: 3rem;
+  fill: white;
+}
 
 .title-icon {
   width: 1.8rem;
@@ -521,7 +545,7 @@ header {
 .logo {
   width: 16.7rem;
   height: 3.6rem;
-  background: url("../icons/logo.svg") no-repeat center;
+  background: url("/cdn/default/icons/logo-beta.svg") no-repeat center;
   cursor: pointer;
 }
 @media (max-width: 992px) {
@@ -592,6 +616,9 @@ header {
   filter: drop-shadow(0 0 5px #07b247);
 }
 
+body[data-sound=load] .sound-set .icon-sound, body[data-sound=true] .sound-set .icon-sound[data-status_for=false], body[data-sound=false] .sound-set .icon-sound[data-status_for=true] {
+  display: none !important;
+}
 @media (max-width: 992px) {
   .sound-set {
     display: none;
@@ -599,6 +626,14 @@ header {
 }
 .sound-set__mob {
   display: block;
+}
+
+.selection_disabled {
+  user-select: none;
+  -moz-user-select: none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  -o-user-select: none;
 }
 
 .language-set {
@@ -860,10 +895,10 @@ input[type=number].arrows_disabled::-webkit-outer-spin-button, input[type=number
 }
 .personal-link__form {
   display: grid;
-  grid-template: 1fr/1fr min-content;
+  grid-template: 1fr 1fr/1fr min-content;
   grid-gap: 0 2rem;
   width: 100%;
-  height: 4rem;
+  height: 6rem;
   padding: 0 2rem;
 }
 @media (max-width: 450px) {
@@ -873,6 +908,14 @@ input[type=number].arrows_disabled::-webkit-outer-spin-button, input[type=number
     height: auto;
     grid-gap: 1rem 0;
   }
+}
+.personal-link__form a {
+  color: #ffffffd9;
+  text-decoration: underline;
+  display: flex;
+  align-items: flex-end;
+  font-size: 118%;
+  text-underline-offset: 3px;
 }
 .personal-link__input {
   background-color: #202046;
@@ -1698,6 +1741,7 @@ body[page_open=classic__type_main] .control_menu_of_bet[data-menu_active] {
 }
 
 .item {
+  position: relative;
   user-select: none;
   display: grid;
   place-content: end;
@@ -1713,6 +1757,15 @@ body[page_open=classic__type_main] .control_menu_of_bet[data-menu_active] {
   box-shadow: 0 0 1rem rgba(0, 0, 0, 0.25), 0 0 1rem #50a869 inset;
   transform: scale(1.04);
 }
+.item.is_loading {
+  box-shadow: none;
+  transform: unset;
+  opacity: 0.5;
+  pointer-events: none;
+}
+.item.is_loading .item__buttons {
+  display: none;
+}
 .item__img {
   width: calc(100% - 2rem);
 }
@@ -1721,6 +1774,70 @@ body[page_open=classic__type_main] .control_menu_of_bet[data-menu_active] {
   font-weight: 300;
   color: #999;
   padding-bottom: 1.5rem;
+}
+.item__name_extra {
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: grid;
+  grid-auto-columns: max-content;
+  align-items: center;
+  justify-items: center;
+  grid-auto-flow: column;
+  padding: 5px 10px;
+  grid-gap: 7px;
+  pointer-events: none;
+}
+.item__name_extra__stattrak {
+  color: #dfa202;
+}
+.item__name_extra__wear {
+  color: #999;
+  text-transform: uppercase;
+}
+.item[data-item_is_stattrak=false] .item__name_extra__stattrak {
+  display: none;
+}
+.item[data-item_wear=null] .item__name_extra__wear {
+  display: none;
+}
+.item__buttons {
+  left: 0;
+  top: 0;
+  position: absolute;
+  display: grid;
+  grid-auto-columns: max-content;
+  align-items: center;
+  justify-items: center;
+  grid-auto-flow: column;
+  grid-gap: 7px;
+  pointer-events: none;
+  transition: 200ms opacity cubic-bezier(0.18, 0.89, 0.32, 1.28);
+  opacity: 0;
+}
+.item__buttons img {
+  width: 100%;
+}
+.item__buttons__sell {
+  width: 35px;
+  border-radius: 35% 0;
+  padding: 3px;
+  text-transform: uppercase;
+  color: white;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-content: center;
+  transition: 200ms background-color cubic-bezier(0.18, 0.89, 0.32, 1.28);
+  background-color: rgba(186, 59, 60, 0.51);
+}
+.item__buttons__sell:hover {
+  background-color: #ba3b3c;
+}
+.item:hover .item__buttons {
+  pointer-events: all;
+  opacity: 1;
 }
 
 .skin-market {
@@ -1786,7 +1903,7 @@ body[page_open=classic__type_main] .control_menu_of_bet[data-menu_active] {
 
 .mobile-header {
   width: 100%;
-  height: 17rem;
+  height: 280px;
   border-radius: 1rem;
   background-color: var(--bg-b);
 }
@@ -1794,9 +1911,6 @@ body[page_open=classic__type_main] .control_menu_of_bet[data-menu_active] {
 .content-panel > .content_unit {
   position: relative;
   grid-gap: 1rem 0;
-}
-.content-panel > .content_unit[data-menu_name=crash] {
-  margin-top: 100px;
 }
 
 .mobile-past {
@@ -2388,6 +2502,13 @@ body[chat_is_open=false] aside#aside {
     left: unset;
     right: unset;
   }
+  .crash-header #crash_round__bg_pic {
+    height: 100%;
+    background: url(/cdn/default/images/games_bg__crop.jpg);
+    background-size: cover;
+    background-repeat: repeat-x;
+    background-position-x: right;
+  }
 }
 
 .crash-game {
@@ -2429,7 +2550,7 @@ body[chat_is_open=false] aside#aside {
 .crash-count {
   display: grid;
   grid-template: 1fr/1fr min-content 1fr;
-  grid-gap: 0 3.3rem;
+  grid-gap: 0 2.3rem;
   align-items: center;
   justify-content: center;
   width: 30rem;
@@ -2531,7 +2652,7 @@ body[chat_is_open=false] aside#aside {
   grid-gap: 0.1rem 0.6rem;
   height: 7.5rem;
   padding: 0 3.5rem;
-  background-color: #50a869;
+  background-color: #d29b09;
   border-radius: 1rem;
 }
 @media (max-width: 1250px) {
@@ -2823,13 +2944,13 @@ body[chat_is_open=false] aside#aside {
 
 .classic-header {
   width: 100%;
-  height: 20rem;
+  height: 250px;
   border-radius: 1rem;
   background-color: var(--bg-b);
   overflow: hidden;
   position: relative;
   display: flex;
-  justify-content: center;
+  justify-content: flex-end;
   align-items: center;
   flex-direction: column;
 }
@@ -2837,11 +2958,24 @@ body[chat_is_open=false] aside#aside {
   .classic-header {
     position: absolute;
     top: 0;
-    height: 181px;
+    height: 280px;
   }
-  .classic-header .background_of_game {
+  body .classic-header .background_of_game {
     height: 100%;
   }
+}
+.classic-header .background_of_game {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 250px;
+  width: 100%;
+  z-index: 3;
 }
 
 .classic-game {
@@ -2868,8 +3002,9 @@ body[chat_is_open=false] aside#aside {
 }
 .classic-round:before {
   position: absolute;
+  z-index: 1;
   content: "";
-  top: 0;
+  bottom: 73px;
   width: 100%;
   height: 0.6rem;
   background: linear-gradient(90deg, var(--bg-b) 0%, #2e2f5b 25%, #3b3b5a 50%, #2e2f5b 75%, var(--bg-b) 100%);
@@ -2979,8 +3114,9 @@ body[chat_is_open=false] aside#aside {
 
 .classic-round-shadow {
   position: absolute;
+  bottom: 0;
   width: 100%;
-  height: 100%;
+  height: 73px;
   background: linear-gradient(90deg, var(--bg-b) 0%, transparent 25%, transparent 75%, var(--bg-b) 100%);
   box-shadow: 0 0 1.5rem 0 rgba(34, 60, 80, 0.2);
   z-index: 2;
@@ -2997,8 +3133,7 @@ body[chat_is_open=false] aside#aside {
 }
 .classic-roulette__arrow {
   position: absolute;
-  top: 0;
-  bottom: 0;
+  bottom: -1px;
   right: 0;
   left: 0;
   width: 100%;
@@ -3045,7 +3180,7 @@ body[chat_is_open=false] aside#aside {
     transform: translateX(-100rem);
   }
 }
-.classic-timer {
+.classic-timer__old {
   display: flex;
   width: 23.8rem;
   height: 6.7rem;
@@ -3059,6 +3194,29 @@ body[chat_is_open=false] aside#aside {
   flex-wrap: nowrap;
   justify-content: center;
   align-items: center;
+}
+
+.classic-timer {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  width: auto;
+  min-width: 10rem;
+  height: 5rem;
+  padding: 1rem 3rem;
+  align-items: center;
+  font-size: 3.5rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  white-space: nowrap;
+  color: #27a15b;
+  border: 0.5rem solid #2f2f5a;
+  border-radius: 1rem;
+  background-color: #272755;
+  box-shadow: inset 0 0 1rem 1rem #202546;
+  top: 0.5rem;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 .classic-stat {
@@ -3128,7 +3286,7 @@ body[chat_is_open=false] aside#aside {
   grid-gap: 0.1rem 0.6rem;
   height: 7.5rem;
   padding: 0 3.5rem;
-  background-color: #50a869;
+  background-color: #d29b09;
   border-radius: 1rem;
 }
 @media (max-width: 1250px) {
@@ -3487,7 +3645,9 @@ body[chat_is_open=false] aside#aside {
 }
 @media (max-width: 600px) {
   .deposit {
-    grid-template: 1fr/100% 100%;
+    grid-template: none;
+    grid-template-rows: 400px max-content;
+    grid-template-columns: 1fr;
   }
 }
 .deposit__nav {
@@ -3510,9 +3670,6 @@ body[chat_is_open=false] aside#aside {
   background-color: #202046;
 }
 @media (max-width: 600px) {
-  .deposit__main {
-    transform: translateX(-100%);
-  }
   .deposit__main.hide {
     transform: translateX(0);
   }
@@ -3873,25 +4030,26 @@ body[chat_is_open=false] aside#aside {
 .market {
   position: absolute;
   display: grid;
-  grid-template: 3.5rem 1fr 13.5rem/1fr;
+  grid-template: 3.5rem 1fr 12.5rem/1fr;
   grid-gap: 2rem 0;
   width: 53rem;
-  height: calc(100vh - (var(--header-height) + var(--footer-height) + var(--main-gap)));
+  height: calc(var(--vv_height) - (var(--header-height) + var(--footer-height) + var(--main-gap)) + 1rem);
   top: 0;
   left: -53rem;
   padding: 2rem;
   border-radius: 1rem;
   background-color: #171b3a;
   transition: left 0.2s;
-  z-index: 3;
+  z-index: 4;
 }
 @media (max-width: 992px) {
   .market {
-    grid-template: 3.5rem 1fr 11.5rem/1fr;
+    grid-template: 3.5rem 1fr 10.5rem/1fr;
     width: 100%;
     left: -100%;
     position: fixed;
-    top: 5rem;
+    top: 4rem;
+    border-radius: 0;
   }
 }
 .market_active {
@@ -3923,7 +4081,7 @@ body[chat_is_open=false] aside#aside {
 }
 .market__items-wrapper {
   width: 100%;
-  height: calc(100vh - 40.5rem);
+  height: calc(var(--vv_height) - 40.5rem);
   background-color: #1b1e3f;
   overflow: hidden;
   overflow-y: scroll;
@@ -3955,29 +4113,117 @@ body[chat_is_open=false] aside#aside {
 
 .filter {
   display: grid;
-  grid-auto-flow: column;
-  grid-gap: 0 0.5rem;
-  place-items: center;
+  grid-template: 4.5rem/1fr 4.5rem 1fr;
+  place-items: end;
+  grid-gap: 0 0.2rem;
+  margin: 1rem 1rem 2rem;
+}
+.filter-input {
+  width: 100%;
+  position: relative;
+}
+.filter-input:before {
+  position: absolute;
+  color: #bbb;
+  left: 1rem;
+  top: -1.6rem;
+  content: "По названию";
+}
+.filter__input {
+  height: 3.5rem;
+  width: 100%;
+  border: 2px solid #2e2f5b;
+  border-radius: 1rem;
+  background-color: #202046;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2) inset;
+  font-size: 1.6rem;
+  color: #fff;
+  text-align: center;
+  outline: none;
+}
+.filter__btn {
+  display: grid;
+  justify-content: center;
   place-content: center;
-  background-color: #262850;
-  font-size: 1.4rem;
-  font-weight: 300;
-  color: #63637e;
+  padding: 0;
+  margin: 0;
+  border: none;
+  width: 4.5rem;
+  height: 4.5rem;
+  background-color: transparent;
+  cursor: pointer;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.filter-number {
+  position: relative;
+  height: 3.5rem;
+  width: 100%;
+  display: grid;
+  grid-template: 100%/min-content 1fr min-content;
+}
+@media (max-width: 374px) {
+  .filter-number {
+    grid-template: 100%/1fr;
+  }
+}
+.filter-number:before {
+  position: absolute;
+  color: #bbb;
+  left: 1rem;
+  top: -1.6rem;
+  content: "По цене от";
+}
+.filter-number__btn {
+  border: none;
+  padding: 0;
+  margin: 0;
+  width: 3.5rem;
+  height: 3.5rem;
+  background-color: #27a15b;
+  color: white;
+  font-size: 1.6rem;
+  font-weight: 600;
   cursor: pointer;
 }
-.filter__down {
-  width: 0;
-  height: 0;
-  border-left: 5px solid transparent;
-  border-right: 5px solid transparent;
-  border-top: 10px solid #63637e;
+.filter-number__btn:first-child {
+  border-radius: 1rem 0 0 1rem;
 }
-.filter__up {
-  width: 0;
-  height: 0;
-  border-left: 5px solid transparent;
-  border-right: 5px solid transparent;
-  border-bottom: 10px solid #63637e;
+.filter-number__btn:last-child {
+  border-radius: 0 1rem 1rem 0;
+}
+@media (max-width: 374px) {
+  .filter-number__btn {
+    display: none;
+  }
+}
+.filter-number__input {
+  width: 100%;
+  border: 2px solid #27a15b;
+  border-radius: 0;
+  background-color: #202046;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2) inset;
+  font-size: 1.6rem;
+  color: #fff;
+  text-align: center;
+  outline: none;
+}
+@media (max-width: 374px) {
+  .filter-number__input {
+    border-radius: 1rem;
+  }
+}
+.filter-number__input::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+.filter-number__input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+.filter-number__input[type=number] {
+  -moz-appearance: textfield;
 }
 
 .buy {
@@ -4110,6 +4356,34 @@ body[chat_is_open=false] aside#aside {
 .counter div:last-child {
   font-size: 1.2rem;
   font-weight: 300;
+}
+
+#inv__market_button__main {
+  padding: 0;
+  overflow: hidden;
+  position: relative;
+}
+#inv__market_button__main > span {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  position: absolute;
+  transition: 200ms opacity cubic-bezier(0, 0, 0.2, 1);
+}
+#inv__market_button__main [data-market_button=buy] {
+  opacity: 1;
+  background-color: #27a148;
+}
+#inv__market_button__main:not([data-inv_play__selected="0.00"]) [data-market_button=sell] {
+  opacity: 1;
+  background-color: #ba3b3ce0;
+}
+#inv__market_button__main:not([data-selected="0.00"]):not([data-inv_play__selected="0.00"]) [data-market_button=change] {
+  opacity: 1;
+  background-color: #411878;
 }
 
 .history {
@@ -4681,7 +4955,7 @@ body[chat_is_open=false] aside#aside {
   z-index: 10;
 }
 .footer-popup.active {
-  bottom: 6rem;
+  bottom: 5.8rem;
 }
 .footer-btn {
   display: grid;

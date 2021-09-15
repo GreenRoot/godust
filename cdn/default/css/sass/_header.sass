@@ -69,7 +69,7 @@ header
 .logo
   width: 16.7rem
   height: 3.6rem
-  background: url("../icons/logo.svg") no-repeat center
+  background: url("/cdn/default/icons/logo-beta.svg") no-repeat center
   cursor: pointer
   @media (max-width: 992px)
     width: 10rem
@@ -121,10 +121,21 @@ header
   filter: drop-shadow(0 0 5px #07b247)
 
 .sound-set
+  & .icon-sound
+    body[data-sound="load"] &, body[data-sound="true"] &[data-status_for="false"], body[data-sound="false"] &[data-status_for="true"]
+      display: none!important
+
   @media(max-width: 992px)
     display: none
   &__mob
     display: block
+
+.selection_disabled
+  user-select: none
+  -moz-user-select: none
+  -khtml-user-select: none
+  -webkit-user-select: none
+  -o-user-select: none
 
 .language-set
   width: 3rem
