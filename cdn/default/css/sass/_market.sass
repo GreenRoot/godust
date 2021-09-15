@@ -19,7 +19,6 @@
     position: fixed
     top: 4rem
     border-radius: 0
-
   &_active
     left: 0
     box-shadow: .5rem .5rem 1.5rem 0 #000
@@ -41,10 +40,10 @@
 
   &__filter
     display: grid
-    grid-template: 4.5rem / repeat(3, 1fr)
-    grid-gap: 0 .2rem
+    grid-template: 4.5rem/repeat(3,1fr)
+    grid-gap: 0 0.2rem
     margin: 1rem 1rem 2rem
-    border-radius: .5rem
+    border-radius: 0.5rem
     overflow: hidden
 
   &__items-wrapper
@@ -116,7 +115,6 @@
     height: 4.5rem
     background-color: transparent
     cursor: pointer
-
     opacity: 0
     pointer-events: none
 
@@ -135,7 +133,6 @@
     left: 1rem
     top: -1.6rem
     content: 'По цене от'
-
   &__btn
     border: none
     padding: 0
@@ -175,6 +172,44 @@
     &[type=number]
       -moz-appearance: textfield
 
+  &__btn
+    border: none
+    padding: 0
+    margin: 0
+    width: 3.5rem
+    height: 3.5rem
+    background-color: #27a15b
+    color: white
+    font-size: 1.6rem
+    font-weight: 600
+    cursor: pointer
+    &:first-child
+      border-radius: 1rem 0 0 1rem
+    &:last-child
+      border-radius: 0 1rem 1rem 0
+    @media (max-width: 374px)
+      display: none
+  &__input
+    width: 100%
+    border: 2px solid #27a15b
+    border-radius: 0
+    background-color: #202046
+    box-shadow: 0 0 10px 0 rgb(0 0 0 / 20%) inset
+    font-size: 1.6rem
+    color: #fff
+    text-align: center
+    outline: none
+    @media (max-width: 374px)
+      border-radius: 1rem
+    // Убираем стрелочки у input
+    &::-webkit-outer-spin-button
+      -webkit-appearance: none
+      margin: 0
+    &::-webkit-inner-spin-button
+      -webkit-appearance: none
+      margin: 0
+    &[type=number]
+      -moz-appearance: textfield
 .buy
   display: grid
   grid-template-columns: repeat(auto-fill, minmax(100px, 1fr))
@@ -329,4 +364,3 @@
   &:not([data-selected="0.00"]):not([data-inv_play__selected="0.00"]) [data-market_button="change"]
     opacity: 1
     background-color: #411878
-

@@ -120,6 +120,9 @@ header
   color: #50a869
   filter: drop-shadow(0 0 5px #07b247)
 
+body[data-sound=load] .sound-set .icon-sound,body[data-sound=true] .sound-set .icon-sound[data-status_for=false],body[data-sound=false] .sound-set .icon-sound[data-status_for=true]
+  display: none!important
+
 .sound-set
   & .icon-sound
     body[data-sound="load"] &, body[data-sound="true"] &[data-status_for="false"], body[data-sound="false"] &[data-status_for="true"]
